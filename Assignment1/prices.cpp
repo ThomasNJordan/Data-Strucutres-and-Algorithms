@@ -25,4 +25,5 @@ int main() {
     total += price;
   }
   cout << "Total: $" << total << endl;
+  return 0;
 }
