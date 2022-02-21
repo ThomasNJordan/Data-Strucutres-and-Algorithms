@@ -140,7 +140,6 @@ string Model::translateStringCharacter(char c){
 }
 
 string Model::translateDoubleCharacter(char c){
-  /*
   // add code to describe scenario for letter pairs
   // if vowel -> add prefix "squat" then repeat vowel "oo" becomes "squato"
   // if consonant -> add prefix "squa" then converted consonant "ll" becomes "squatlul"
@@ -148,8 +147,12 @@ string Model::translateDoubleCharacter(char c){
     return "squat" + c;
   }
   if (c == 'A' || c == 'E' ||c == 'U' ||c == 'O' ||c == 'U') {
-    return "Squat" + c;
+    return "Squat" + tolower(c);
   }
-
-  */
+  else if (isupper(c)) {
+    return "Squa" + tolower(c);
+  }
+  else {
+    return ("squa" + c);
+  }
 }
