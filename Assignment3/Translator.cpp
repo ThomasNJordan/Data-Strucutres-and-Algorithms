@@ -1,10 +1,30 @@
+/*
+* Translator.cpp parses the sentences and/or words from input, then passes then
+* parsed data to the corresponding single or double letter function depending
+* on context.
+*/
+
 #include "Translator.h"
 #include "Model.h"
 #include <iostream>
 
+/*
+* Default constructor
+*/
 Translator::Translator() {}
+/*
+* Destructor
+*/
 Translator::~Translator() {}
 
+/*
+* translateEnglishWord
+* This function parses characters in a word, then given the context
+* of the characters, it calls either the single or double occurance
+* function for that scenerio.
+* @param string word
+* @return string ret
+*/
 string Translator::translateEnglishWord(string word){
   Model model;
   string ret = "";
@@ -23,6 +43,13 @@ string Translator::translateEnglishWord(string word){
   return ret;
 }
 
+/*
+* translateEnglishSentence
+* This function parses an entire sentence from input, then parses the words from
+* the sentence and passes those words into the translateEnglishWord function.
+* @param string sent
+* @return string retSentence
+*/
 string Translator::translateEnglishSentence(string sent){
   Translator translator;
   string retSentence = "";
@@ -33,7 +60,7 @@ string Translator::translateEnglishSentence(string sent){
       word = "";
     }
     word += sent.at(i);
-    if (i == sent.size() - 1) { 
+    if (i == sent.size() - 1) { // account for no end punctuation
       retSentence += translator.translateEnglishWord(word);
     }
   }

@@ -1,3 +1,7 @@
+/*
+* This is the header file for the FileProcessor class.
+*/
+
 #include <fstream>
 #include "Model.h"
 #include "Translator.h"

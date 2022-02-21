@@ -1,13 +1,31 @@
+/*
+* Model.cpp parses individual characters and replaces them with their phonetic
+* counterparts. It maintains case by implementing each letter twice. It also
+* provides the logic to handle an input if it comes from a double letter.
+*/
+
 #include "Model.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+/*
+* Default constructor
+*/
 Model::Model() {}
 
+/*
+* Destructor
+*/
 Model::~Model() {}
 
+/*
+* translateStringCharacter
+* Returns the corresponding phonetic string for the given character.
+* @param char c
+* @return phonetic string
+*/
 string Model::translateStringCharacter(char c){
   // Lower case
   if (c == 'b') {
@@ -143,6 +161,12 @@ string Model::translateStringCharacter(char c){
   }
 }
 
+/*
+* translateDoubleCharacter
+* Returns the phonetic string if it comes from a double occurance.
+* @param char c
+* @return phonetic string
+*/
 string Model::translateDoubleCharacter(char c){
   if (c == 'a' || c == 'e' ||c == 'i' ||c == 'o' ||c == 'u') {
     string ret = "squat";

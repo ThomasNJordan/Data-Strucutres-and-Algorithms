@@ -1,3 +1,7 @@
+/*
+* This is the header file for the Translator class. 
+*/
+
 using namespace std;
 #include <string>
 

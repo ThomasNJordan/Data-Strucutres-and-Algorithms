@@ -1,3 +1,7 @@
+/*
+* Header file for Model class
+*/
+
 using namespace std;
 #include <string>
 
