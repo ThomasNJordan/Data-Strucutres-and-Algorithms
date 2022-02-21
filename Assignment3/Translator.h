@@ -3,7 +3,6 @@ using namespace std;
 
 class Translator{
 public:
-  // implement constructor and destructor
   Translator();
   ~Translator();
   string translateEnglishWord(string word);

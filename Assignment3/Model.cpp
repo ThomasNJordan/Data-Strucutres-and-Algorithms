@@ -137,22 +137,27 @@ string Model::translateStringCharacter(char c){
   if (c == 'Z') {
     return "Zub";
   }
+  else {
+    string ret;
+    return ret += c;
+  }
 }
 
 string Model::translateDoubleCharacter(char c){
-  // add code to describe scenario for letter pairs
-  // if vowel -> add prefix "squat" then repeat vowel "oo" becomes "squato"
-  // if consonant -> add prefix "squa" then converted consonant "ll" becomes "squatlul"
   if (c == 'a' || c == 'e' ||c == 'i' ||c == 'o' ||c == 'u') {
-    return "squat" + c;
+    string ret = "squat";
+    return ret += c;
   }
-  if (c == 'A' || c == 'E' ||c == 'U' ||c == 'O' ||c == 'U') {
-    return "Squat" + tolower(c);
+  if (c == 'A' || c ==  'E' ||c == 'U' ||c == 'O' ||c == 'U') {
+    string ret = "Squat";
+    return ret += tolower(c);
   }
   else if (isupper(c)) {
-    return "Squa" + tolower(c);
+    string ret = "Squa";
+    return ret += tolower(c);
   }
   else {
-    return ("squa" + c);
+    string ret = "squa";
+    return (ret += c);
   }
 }

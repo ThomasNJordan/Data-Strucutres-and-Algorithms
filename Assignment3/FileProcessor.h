@@ -1,10 +1,11 @@
-#include <string>
+#include <fstream>
+#include "Model.h"
+#include "Translator.h"
 using namespace std;
 
-class FileProcessor{
+class FileProcessor {
 public:
-  // implement constructor and destructor
-  //FileProcessor();
-  //~FileProcessor();
+  FileProcessor();
+  ~FileProcessor();
   void processFile(string inputfile, string outputfile);
 };
