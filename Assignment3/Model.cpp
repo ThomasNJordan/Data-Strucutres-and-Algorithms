@@ -13,12 +13,16 @@ using namespace std;
 /*
 * Default constructor
 */
-Model::Model() {}
+Model::Model() {
+  cout << "Model object created!" << endl;
+}
 
 /*
 * Destructor
 */
-Model::~Model() {}
+Model::~Model() {
+  cout << "Model object destroyed!" << endl;
+}
 
 /*
 * translateStringCharacter

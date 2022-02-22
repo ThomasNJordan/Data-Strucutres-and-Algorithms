@@ -11,11 +11,15 @@
 /*
 * Default constructor
 */
-Translator::Translator() {}
+Translator::Translator() {
+  cout << "Translator object created!" << endl;
+}
 /*
 * Destructor
 */
-Translator::~Translator() {}
+Translator::~Translator() {
+  cout << "Translator object destroyed!" << endl;
+}
 
 /*
 * translateEnglishWord

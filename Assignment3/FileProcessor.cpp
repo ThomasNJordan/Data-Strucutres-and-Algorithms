@@ -8,12 +8,16 @@
 /*
 * Default constructor
 */
-FileProcessor::FileProcessor() {}
+FileProcessor::FileProcessor() {
+  cout << "FileProcessor object created!" << endl;
+}
 
 /*
 * Destructor
 */
-FileProcessor::~FileProcessor() {}
+FileProcessor::~FileProcessor() {
+  cout << "FileProcessor object destroyed!" << endl;
+}
 
 /*
 * processFile
