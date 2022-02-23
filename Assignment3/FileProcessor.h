@@ -3,6 +3,7 @@
 */
 
 #include <fstream>
+#include <iostream>
 #include "Model.h"
 #include "Translator.h"
 using namespace std;
