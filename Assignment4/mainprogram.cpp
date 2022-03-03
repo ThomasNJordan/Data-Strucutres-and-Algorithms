@@ -19,9 +19,8 @@ int main() {
   setup(format); // TODO
 
   char boundry;
-  cout << "What kind of boundry mode would you like to run in? Enter m for mirror, d for donut, or n for normal" << endl;
+  cout << "What kind of boundry mode would you like to run in?\nEnter m for mirror, d for donut, or n for normal: " << endl;
   cin >> boundry;
-
 
   return 0;
 }
