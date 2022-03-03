@@ -3,7 +3,7 @@
 using namespace std;
 
 cell::cell() {
-  m_value = '\0';
+  m_value = '-';
 }
 
 cell::~cell() {}
