@@ -1,13 +1,15 @@
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef CLASSIC_H
+#define CLASSIC_H
 
 #include "board.h"
 
 class classic : public board {
+private:
+  bool equalGen = false;
 public:
-  char** newBoard;
-  char** checkCells();
-  ~classic();
+  bool isStable();
+  void checkCells();
+  void setTrue();
 };
 
 #endif

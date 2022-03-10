@@ -1,10 +1,6 @@
-#include "classic.h"
+#include "mirror.h"
 
-void classic::setTrue() {
-  equalGen = true;
-}
-
-void classic::checkCells() {
+void mirror::checkCells() {
   board retBoard;
   retBoard.createBoard(getRows(), getCols());
 
@@ -19,54 +15,66 @@ void classic::checkCells() {
       // Logic after && is to check if cell is out of bounds
       if (i == 0 && j == 0) { // top left
         if (m_board[i+1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i+1][j+1] == 'X') {
           counter++;
         }
         if (m_board[i][j+1] == 'X') {
-          counter++;
+          counter = counter + 2;
+        }
+        if (m_board[i][j] == 'X') {
+          counter = counter + 3;
         }
       }
       else if (i == 0 && j == getCols() -1) { // top right
         if (m_board[i][j-1] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i+1][j-1] == 'X') {
           counter++;
         }
         if (m_board[i+1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
+        }
+        if (m_board[i][j] == 'X') {
+          counter = counter + 3;
         }
       }
       else if (i == getRows() -1 && j == 0) { // bottom left
         if (m_board[i-1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i-1][j+1] == 'X') {
           counter++;
         }
         if (m_board[i][j+1] == 'X') {
-          counter++;
+          counter = counter + 2;
+        }
+        if (m_board[i][j] == 'X') {
+          counter = counter + 3;
         }
       }
       else if (i == getRows() - 1 && j == getCols() - 1) {  // bottom right
         if (m_board[i][j-1] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i-1][j-1] == 'X') {
           counter++;
         }
         if (m_board[i-1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
+        }
+        if (m_board[i][j] == 'X') {
+          counter = counter + 3;
         }
       }
       else if (i == 0) {  // top row
         if (m_board[i+1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i][j-1] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i][j+1] == 'X') {
           counter++;
@@ -75,15 +83,18 @@ void classic::checkCells() {
           counter++;
         }
         if (m_board[i+1][j+1] == 'X') {
+          counter++;
+        }
+        if (m_board[i][j] == 'X') {
           counter++;
         }
       }
       else if (i == getRows()-1) { // bottom row
         if (m_board[i][j-1] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i][j+1] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i-1][j-1] == 'X') {
           counter++;
@@ -94,13 +105,16 @@ void classic::checkCells() {
         if (m_board[i-1][j+1] == 'X') {
           counter++;
         }
+        if (m_board[i][j] == 'X') {
+          counter++;
+        }
       }
       else if (j == 0) {  // left column
         if (m_board[i-1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i+1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i-1][j+1] == 'X') {
           counter++;
@@ -111,13 +125,16 @@ void classic::checkCells() {
         if (m_board[i+1][j+1] == 'X') {
           counter++;
         }
+        if (m_board[i][j] == 'X') {
+          counter++;
+        }
       }
       else if (j == getCols() -1) {  // right column
         if (m_board[i-1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i+1][j] == 'X') {
-          counter++;
+          counter = counter + 2;
         }
         if (m_board[i-1][j-1] == 'X') {
           counter++;
@@ -126,6 +143,9 @@ void classic::checkCells() {
           counter++;
         }
         if (m_board[i+1][j-1] == 'X') {
+          counter++;
+        }
+        if (m_board[i][j] == 'X') {
           counter++;
         }
       }
@@ -194,21 +214,4 @@ void classic::checkCells() {
       m_board[i][j] = retBoard.getValue(i,j);
     }
   }
-}
-
-bool classic::isStable() {
-  int counter = 0;
-  // check if empty
-  for (int i = 0; i < getRows()-1; ++i) {
-    for (int j = 0; j < getCols()-1; j++) {
-      if (m_board[i][j] == 'X') {
-        counter++;
-      }
-    }
-  }
-  if (equalGen == true) {
-    return true;
-  }
-
-  return false;
 }
