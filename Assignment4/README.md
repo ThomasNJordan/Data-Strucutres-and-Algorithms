@@ -25,10 +25,10 @@ README Assignment 4: Game of Life
    https://stackoverflow.com/questions/9878965/rand-between-0-and-1 We used
    this to generate a random number between 0 and 1.
 
-4. Rao helped me to create a copy constructor.
-   Rao helped me figure out how to parse the 2d array.
-   Rao checked our mainprogram.cpp on whether we cam declare a variable outside
-   of main.
+4. Professor Ali helped me to create a copy constructor.
+   Professor Ali helped me figure out how to parse the 2d array.
+   Professor Ali checked our mainprogram.cpp on whether we cam declare a variable outside
+   of main. He also verified that we could have a global variable declared outside our main function in mainprogram.cpp
 
 5. g++ -std=c++11 -o life cell.cpp board.cpp classic.cpp donut.cpp mirror.cpp config.cpp mainprogram.cpp
    ./life
