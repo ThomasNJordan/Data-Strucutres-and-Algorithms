@@ -7,7 +7,7 @@ Resources:
 - https://www.cplusplus.com/reference/fstream/ifstream/
 - https://stackoverflow.com/questions/9878965/rand-between-0-and-1
 
-List of Files:   
+List of Files:
 - cell.cpp
 - cell.h
 - board.cpp
