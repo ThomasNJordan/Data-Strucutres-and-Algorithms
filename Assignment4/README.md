@@ -24,6 +24,9 @@ README Assignment 4: Game of Life
    from a file.
    https://stackoverflow.com/questions/9878965/rand-between-0-and-1 We used
    this to generate a random number between 0 and 1.
+   https://stackoverflow.com/questions/21257544/c-wait-for-user-input We used
+   cin.get)() to wait for user input since it was more consistent than
+   system("pause")
 
 4. Professor Ali helped me to create a copy constructor.
    Professor Ali helped me figure out how to parse the 2d array.
