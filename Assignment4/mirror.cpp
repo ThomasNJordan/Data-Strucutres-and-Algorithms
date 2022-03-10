@@ -6,8 +6,16 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+mirror.cpp defines the behavior for mirror boundary condition.
+*/
+
 #include "mirror.h"
 
+/*
+checkCells() checks the cells around each given cell depending on its position,
+and the corresponding cells for the edge case.
+*/
 void mirror::checkCells() {
   board retBoard;
   retBoard.createBoard(getRows(), getCols());

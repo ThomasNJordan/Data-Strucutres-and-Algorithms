@@ -6,6 +6,10 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+board.h is the header file for the board class. board creates a board for the
+game of life to be plaeyd on.
+*/
 #include "cell.h"
 #include <iostream>
 using namespace std;

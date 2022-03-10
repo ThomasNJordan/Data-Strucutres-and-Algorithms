@@ -6,6 +6,11 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+mirror.h defines the mirror class which defines the behavior for the mirror
+boundary condiiton.
+*/
+
 #include "classic.h"
 
 class mirror : public classic {

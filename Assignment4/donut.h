@@ -6,6 +6,11 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+donut.h defines the donut class which defines the behavior for the donut boudnry
+condiiton.
+*/
+
 #include "classic.h"
 
 class donut : public classic {

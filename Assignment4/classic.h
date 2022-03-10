@@ -6,6 +6,11 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+classic.h defines the classic class which establishes the behavior to run the
+normal version of The Game of Life.
+*/
+
 #ifndef CLASSIC_H
 #define CLASSIC_H
 

@@ -6,15 +6,31 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+config.cpp creates the enviroment to run The Game of Life. It handles file-
+processing, board starting positions, and boundry conditions.
+*/
+
 #include "config.h"
 #include <fstream>
 #include <string>
 
+/*
+randomDensity() finds a value between 0 and 1. We then use this value to
+compute the density (the distribution) of the bacteria on the board.
+@return double r: the density value
+*/
 double config::randomDensity() {
   double r = rand() / double(RAND_MAX);
   return r;
 }
 
+/*
+setup() populates the board. If the user wants a randomly configured board, it
+then populates the board at a given density. If the user wants to provide their
+own board, setup() parses the given file and creates that board.
+@param char format: the desired board setup state
+*/
 void config::setup(char format) {
   if (format == 'r') {
     int numRows;
@@ -65,6 +81,13 @@ void config::setup(char format) {
   }
 }
 
+/*
+game() passses the populated board into the appropriate function depending on
+the desired boundry condition. If the user wants to print the board to the
+terminal, they can, or they can print the entire sequence to a desired out file.
+@param char boundry: the boundry condition
+@param char pause: outputs the board to the terminal or to a file
+*/
 void config::game(char boundry, char pause) {
   if (boundry == 'm') {
     mirror m;

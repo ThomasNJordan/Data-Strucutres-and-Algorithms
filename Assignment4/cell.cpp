@@ -7,7 +7,7 @@ Assignment 4: Game of Life
 */
 
 /*
-* cell adds functonality for one cell of the Game of Life grid.
+* cell adds functonality for one cell on the Game of Life board.
 */
 
 #include "cell.h"

@@ -6,8 +6,16 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+donut.cpp defines the behavior for the torus (or donut) boundry condition.
+*/
+
 #include "donut.h"
 
+/*
+checkCells() checks the cells around each given cell depending on its position,
+and the corresponding cells for the edge case.
+*/
 void donut::checkCells() {
   board retBoard;
   retBoard.createBoard(getRows(), getCols());

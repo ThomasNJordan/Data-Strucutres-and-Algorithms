@@ -6,12 +6,26 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+classic.cpp defines the behavior for the normal variation of the Game of Life.
+*/
+
 #include "classic.h"
 
+/*
+Mutator to set equalGen to true. It's true if two generations are equal.
+*/
 void classic::setTrue() {
   equalGen = true;
 }
 
+/*
+checkCells() iterates over each value in the given array, then checks that
+value's neighbors. If the cell has 1 neighbor, it dies. If it has 2, it remains
+the same. If there are 3 neighbors, the cell grows a bacteria. If it has 4
+neighbors it dies. checkCells() then checks if the current generation is
+equal to the previous generation.
+*/
 void classic::checkCells() {
   board retBoard;
   retBoard.createBoard(getRows(), getCols());
@@ -204,6 +218,10 @@ void classic::checkCells() {
   }
 }
 
+/*
+isStable() checks if the board is stable. It first checks if the board is empty.
+It then checks if the previous generation was equal to the current generation.
+*/
 bool classic::isStable() {
   int counter = 0;
   // check if empty

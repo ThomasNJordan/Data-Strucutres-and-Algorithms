@@ -6,6 +6,10 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+config defines the behavior for controlling the different game elements.
+*/
+
 #ifndef CONFIG_H
 #define CONFIG_H
 

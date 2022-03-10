@@ -6,6 +6,11 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+This is the header file for the cell class. cell.h defines the functions that
+make one cell on the board.
+*/
+
 #ifndef CELL_H
 #define CELL_H
 

@@ -6,6 +6,11 @@ CPSC 350-02
 Assignment 4: Game of Life
 */
 
+/*
+mainprogram is the driver class for the Game of Life. It prompts the user for a
+couple of values, then calls the appropriate functions.
+*/
+
 #include <iostream>
 #include <string>
 #include "config.h"
