@@ -70,13 +70,13 @@ void mirror::checkCells() {
         }
       }
       else if (i == 0) {  // top row
-        if (m_board[i+1][j] == 'X') {
+        if (m_board[i][j+1] == 'X') {
           counter = counter + 2;
         }
         if (m_board[i][j-1] == 'X') {
           counter = counter + 2;
         }
-        if (m_board[i][j+1] == 'X') {
+        if (m_board[i+1][j] == 'X') {
           counter++;
         }
         if (m_board[i+1][j-1] == 'X') {

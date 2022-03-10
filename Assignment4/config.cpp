@@ -54,7 +54,6 @@ void config::setup(char format) {
       }
     }
     inFile.close();
-    randomBoard.printBoard();
   }
 }
 
@@ -80,37 +79,52 @@ void config::game(char boundry, char pause) {
           cout << "Gen 0 (input)" << endl;
         }
         else {
-          cout << "\nGen " << i << endl;
+          cout << "Gen " << i << endl;
         }
         i++;
         m.printBoard();
         m.checkCells();
       }
       cin.get();
-      cout << "\nGen " << i << endl;
+      cout << "Gen " << i << endl;
       m.printBoard();
       cout << "\nStability Achieved" << endl;
       cout << "Press enter to exit. " << endl;
       cin.get();
     }
     if (pause == 'n') {
+      string outfilename;
+      cout << "Enter the name for the output file: " << endl;
+      cin >> outfilename;
+      ofstream out_file;
+      out_file.open(outfilename);
       int i = 0;
       while (m.isStable() == false) {
         if (i == 0) {
-          cout << "Gen 0 (input)" << endl;
+          out_file << "Gen 0 (input)" << endl;
         }
         else {
-          cout << "\nGen " << i << endl;
+          out_file << "\nGen " << i << endl;
         }
         i++;
-        m.printBoard();
+
+        for(int i = 0; i < m.getRows(); i++){
+          for(int j = 0; j < m.getCols(); j++){
+            out_file << m.getValue(i,j);
+          }
+          out_file << endl;
+        }
         m.checkCells();
       }
-      cout << "\nGen " << i << endl;
-      m.printBoard();
-      cout << "\nStability Achieved" << endl;
-      cout << "Press enter to exit. " << endl;
-      cin.get();
+      out_file << "\nGen " << i << endl;
+      for(int i = 0; i < m.getRows(); i++){
+        for(int j = 0; j < m.getCols(); j++){
+          out_file << m.getValue(i,j);
+        }
+        out_file << endl;
+      }
+      out_file << "\nStability Achieved" << endl;
+      out_file.close();
     }
   }
 
@@ -137,37 +151,51 @@ void config::game(char boundry, char pause) {
           cout << "Gen 0 (input)" << endl;
         }
         else {
-          cout << "\nGen " << i << endl;
+          cout << "Gen " << i << endl;
         }
         i++;
         d.printBoard();
         d.checkCells();
       }
       cin.get();
-      cout << "\nGen " << i << endl;
+      cout << "Gen " << i << endl;
       d.printBoard();
       cout << "\nStability Achieved" << endl;
       cout << "Press enter to exit. " << endl;
       cin.get();
     }
     if (pause == 'n') {
+      string outfilename;
+      cout << "Enter the name for the output file: " << endl;
+      cin >> outfilename;
+      ofstream out_file;
+      out_file.open(outfilename);
       int i = 0;
       while (d.isStable() == false) {
         if (i == 0) {
-          cout << "Gen 0 (input)" << endl;
+          out_file << "Gen 0 (input)" << endl;
         }
         else {
-          cout << "\nGen " << i << endl;
+          out_file << "\nGen " << i << endl;
         }
         i++;
-        d.printBoard();
+        for(int i = 0; i < d.getRows(); i++){
+          for(int j = 0; j < d.getCols(); j++){
+            out_file << d.getValue(i,j);
+          }
+          out_file << endl;
+        }
         d.checkCells();
       }
-      cout << "\nGen " << i << endl;
-      d.printBoard();
-      cout << "\nStability Achieved" << endl;
-      cout << "Press enter to exit. " << endl;
-      cin.get();
+      out_file << "\nGen " << i << endl;
+      for(int i = 0; i < d.getRows(); i++){
+        for(int j = 0; j < d.getCols(); j++){
+          out_file << d.getValue(i,j);
+        }
+        out_file << endl;
+      }
+      out_file << "\nStability Achieved" << endl;
+      out_file.close();
     }
   }
   if (boundry == 'n') {
@@ -193,37 +221,51 @@ void config::game(char boundry, char pause) {
           cout << "Gen 0 (input)" << endl;
         }
         else {
-          cout << "\nGen " << i << endl;
+          cout << "Gen " << i << endl;
         }
         i++;
         c.printBoard();
         c.checkCells();
       }
       cin.get();
-      cout << "\nGen " << i << endl;
+      cout << "Gen " << i << endl;
       c.printBoard();
       cout << "\nStability Achieved" << endl;
       cout << "Press enter to exit. " << endl;
       cin.get();
     }
     if (pause == 'n') {
+      string outfilename;
+      cout << "Enter the name for the output file: " << endl;
+      cin >> outfilename;
+      ofstream out_file;
+      out_file.open(outfilename);
       int i = 0;
       while (c.isStable() == false) {
         if (i == 0) {
-          cout << "Gen 0 (input)" << endl;
+          out_file << "Gen 0 (input)" << endl;
         }
         else {
-          cout << "\nGen " << i << endl;
+          out_file << "\nGen " << i << endl;
         }
         i++;
-        c.printBoard();
+        for(int i = 0; i < c.getRows(); i++){
+          for(int j = 0; j < c.getCols(); j++){
+            out_file << c.getValue(i,j);
+          }
+          out_file << endl;
+        }
         c.checkCells();
       }
-      cout << "\nGen " << i << endl;
-      c.printBoard();
-      cout << "\nStability Achieved" << endl;
-      cout << "Press enter to exit. " << endl;
-      cin.get();
+      out_file << "\nGen " << i << endl;
+      for(int i = 0; i < c.getRows(); i++){
+        for(int j = 0; j < c.getCols(); j++){
+          out_file << c.getValue(i,j);
+        }
+        out_file << endl;
+      }
+      out_file << "\nStability Achieved" << endl;
+      out_file.close();
     }
   }
 }
