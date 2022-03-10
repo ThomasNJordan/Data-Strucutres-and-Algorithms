@@ -7,7 +7,7 @@ Assignment 4: Game of Life
 */
 
 /*
-donut.cpp defines the behavior for the torus (or donut) boundry condition.
+donut.cpp defines the behavior for the torus (or donut) boundary condition.
 */
 
 #include "donut.h"

@@ -63,7 +63,7 @@ char board::getValue(int row, int col) {
 }
 
 /*
-getValue() sets the value of the current cell to 'X'
+setCell() sets the value of the current cell to 'X'
 @param int row: the desired row of the cell
 @param int col: the desired column of the cell
 */

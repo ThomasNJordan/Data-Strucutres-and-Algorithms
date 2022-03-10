@@ -83,7 +83,7 @@ void config::setup(char format) {
 
 /*
 game() passses the populated board into the appropriate function depending on
-the desired boundry condition. If the user wants to print the board to the
+the desired boundary condition. If the user wants to print the board to the
 terminal, they can, or they can print the entire sequence to a desired out file.
 @param char boundry: the boundry condition
 @param char pause: outputs the board to the terminal or to a file

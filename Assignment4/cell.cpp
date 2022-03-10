@@ -22,11 +22,6 @@ cell::cell() {
 }
 
 /*
-* Destructor
-*/
-cell::~cell() {}
-
-/*
 * setVale() sets the value of the cell to the provided value
 * @param char value: the value to set cell to
 */

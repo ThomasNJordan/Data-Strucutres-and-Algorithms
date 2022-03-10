@@ -23,7 +23,7 @@ private:
   int numCols;
 public:
   void setup(char format);
-  void game(char boundry, char pause);
+  void game(char boundary, char pause);
   double randomDensity();
 };
 

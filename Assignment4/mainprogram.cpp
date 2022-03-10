@@ -23,12 +23,12 @@ int main() {
   cin >> format;
   conf.setup(format);
 
-  char boundry;
+  char boundary;
   char pause;
   cout << "What kind of boundary mode would you like to run in?\nEnter m for mirror, d for donut, or n for normal: " << endl;
-  cin >> boundry;
+  cin >> boundary;
   cout << "Do you want a brief pause between generations? (y/n):" << endl;
   cin >> pause;
-  conf.game(boundry, pause);
+  conf.game(boundary, pause);
   return 0;
 }
