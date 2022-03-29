@@ -13,6 +13,8 @@ README Assignment 5
    mainprogram.cpp
 
 3.  https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/ to read from the command line.
+    https://www.cplusplus.com/doc/tutorial/exceptions/ I used this tutorial to
+    create an exception in my try/catch block
 
 4. N/A
 
