@@ -1,22 +1,20 @@
-#include "Queue.h"
-#include <iostream>
+/*
+Thomas Jordan & Jackie Vu
+2400895 & 2345574 (respectively)
+thjordan@chapman.edu & jacvu@chapman.edu
+CPSC 350-02
+Assignment 6: Calculating Metrics on Student Wait Times and Window Idle Times at the Registrar's Office
+*/
 
-using namespace std;
+/*
+  This is a main program class file that runs the simulation class and indirectly runs the rest of the header files.
+  It is the driver class for this assignment by converting the file that's being passed into the command line argument to a string so that it can be used to calculate the metrics on student wait times and window idle times in the registrar's office in the simulation class.
+*/
 
-int main() {
-  Queue<int> q;
-  cout << "Inserting elements 6, 7, and 8" << endl;
-  q.enqueue(6);
-  q.enqueue(7);
-  q.enqueue(8);
+#include "simulation.h"
 
-  cout << "Checking front element" << endl;
-  cout << q.peek() << endl;
-
-  cout << "Removing two elements" << endl;
-  q.dequeue();
-  q.dequeue();
-  cout << q.peek() << endl;
-
+int main(int argc, char** argv) { // the code to get the file passed into the command line argument
+  simulation s;
+  s.simulate(argv[1]);
   return 0;
 }
