@@ -10,4 +10,5 @@ private:
   int studentFacultyAdvisorID;
 public:
   StudentRecords();
+  StudentRecords(int studentID, string studentName, string studentLevel, string studentMajor, double studentGPA, int studentFacultyAdvisorID);
 }
