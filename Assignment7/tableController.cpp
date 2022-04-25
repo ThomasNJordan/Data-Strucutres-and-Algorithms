@@ -4,31 +4,31 @@ tableController::tableController() {}
 
 tableController::~tableController() {}
 
-tableController::printAllStudentInfoById() {}
+void tableController::printAllStudentInfoById() {}
 
-tableController::printAllFacultyInfoById() {}
+void tableController::printAllFacultyInfoById() {}
 
-tableController::printStudentInfo() {}
+void tableController::printStudentInfo() {}
 
-tableController::printFacultyInfo() {}
+void tableController::printFacultyInfo() {}
 
-tableController::pirntFacultyAdvisees() {}
+void tableController::pirntFacultyAdvisees() {}
 
-tableController::AddNewStudent() {}
+void tableController::AddNewStudent() {}
 
-tableController::DeleteStudent() {}
+void tableController::DeleteStudent() {}
 
-tableController::AddFaculty() {}
+void tableController::AddFaculty() {}
 
-tableController::DeleteFaculty() {}
+void tableController::DeleteFaculty() {}
 
-tableController::ChangeAdvisor() {}
+void tableController::ChangeAdvisor() {}
 
-tableController::RemoveStudentFromFaculty() {}
+void tableController::RemoveStudentFromFaculty() {}
 
-tableController::Rollback() {}
+void tableController::Rollback() {}
 
-tableController::ExitMenu() {}
+void tableController::ExitMenu() {}
 
 int main() {
   std::cout << "test" << std::endl;
