@@ -21,8 +21,8 @@ class tableController : public StudentRecords, FacultyRecords {
     void Rollback();
     void ExitMenu();
   private:
-    //BST<StudentRecords> StudentRecordsTree;
-    //BST<FacultyRecords> FacultyRecordsTree;
+    BST<StudentRecords> StudentRecordsTree;
+    BST<FacultyRecords> FacultyRecordsTree;
     AStack<StudentRecords> StudentRecordsTable;
     AStack<FacultyRecords> FacultyRecordsTable;
 };
