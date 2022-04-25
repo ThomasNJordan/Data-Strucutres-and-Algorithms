@@ -17,3 +17,12 @@ StudentRecords::StudentRecords(int studentID, string studentName, string student
   this->studentGPA = studentGPA;
   this->studentFacultyAdvisorID = studentFacultyAdvisorID;
 }
+
+StudentRecords::~StudentRecords() {}
+
+bool StudentRecords::operator==(const StudentRecords sr) {
+  if (this->studentID = sr.studentID && this->studentName = sr.studentName &&this->studentLevel = sr.studentLevel &&this->studentMajor = sr.studentMajor &&this->studentGPA = sr.studentGPA &&this->studentFacultyAdvisorID = sr.studentFacultyAdvisorID) {
+    return true;
+  }
+  return false;
+}
