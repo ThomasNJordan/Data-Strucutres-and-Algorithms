@@ -9,5 +9,5 @@ private:
   double studentGPA;
   int studentFacultyAdvisorID;
 public:
-
+  StudentRecords();
 }
