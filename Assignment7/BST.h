@@ -72,7 +72,7 @@ bool BST<E>::contains(int k){
 template <typename E>
 E BST<E>::find(int k){
   if (root == nullptr) {
-    return false;
+    return E();
   }
   TreeNode<E>* curr = root;
   while (curr->key != k) {

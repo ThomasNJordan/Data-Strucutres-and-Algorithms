@@ -15,8 +15,3 @@ FacultyRecords::FacultyRecords(int facultyID, std::string facultyName, std::stri
 }
 
 FacultyRecords::~FacultyRecords() {}
-
-int main() {
-  std::cout << "test" << std::endl;
-  return 1;
-}

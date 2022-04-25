@@ -7,15 +7,16 @@ class tableController : public StudentRecords, FacultyRecords {
   public:
     tableController();
     ~tableController();
-    void printAllStudentInfoById();
-    void printAllFacultyInfoById();
-    void printStudentInfo();
-    void printFacultyInfo();
-    void pirntFacultyAdvisees();
-    void AddNewStudent();
-    void DeleteStudent();
-    void AddFaculty();
-    void DeleteFaculty();
+    void printAllStudentInfoById(int studentID);
+    void printAllFacultyInfoById(int facultyID);
+    void printStudentInfo(int studentID);
+    void printFacultyInfo(int facultyID);
+    void printFacultyAdvisees();
+    void printFacultyOfStudent();
+    void AddNewStudent(StudentRecords newStudent);
+    void DeleteStudent(int studentID);
+    void AddFaculty(FacultyRecords newFaculty);
+    void DeleteFaculty(int facultyID);
     void ChangeAdvisor();
     void RemoveStudentFromFaculty();
     void Rollback();

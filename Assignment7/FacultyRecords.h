@@ -7,7 +7,7 @@ class FacultyRecords {
     std::string facultyName;
     std::string facultyLevel;
     std::string facultyDepartment;
-    DLList <int> facultyStudentReferences;
+    DLList<int> facultyStudentReferences;
   public:
     FacultyRecords();
     FacultyRecords(int facultyID, std::string facultyName, std::string facultyLevel, std::string facultyDepartment);

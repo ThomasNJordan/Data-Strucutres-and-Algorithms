@@ -4,23 +4,60 @@ tableController::tableController() {}
 
 tableController::~tableController() {}
 
-void tableController::printAllStudentInfoById() {}
+void tableController::printAllStudentInfoById(int studentID) {
+  StudentRecordsTree.printTree();
+}
 
-void tableController::printAllFacultyInfoById() {}
+void tableController::printAllFacultyInfoById(int facultyID) {
+  FacultyRecordsTree.printTree();
+}
 
-void tableController::printStudentInfo() {}
+void tableController::printStudentInfo(int studentID) {
+  StudentRecordsTree.find(studentID);
+}
 
-void tableController::printFacultyInfo() {}
+void tableController::printFacultyInfo(int facultyID) {
+  FacultyRecordsTree.find(facultyID);
+}
 
-void tableController::pirntFacultyAdvisees() {}
+void tableController::printFacultyAdvisees() {
 
-void tableController::AddNewStudent() {}
+}
 
-void tableController::DeleteStudent() {}
+void tableController::printFacultyOfStudent() {
+  /*
+  DLList<int> tempList;
+  std::cout << "Advisees of Faculty Member " << facultyID << " ";
 
-void tableController::AddFaculty() {}
+  while (!facultyStudentReferences.isEmpty()) {
+    tempList = facultyStudentReferences.peekFront();
+    std::cout << facultyStudentReferences.peekFront() << " ";
+    facultyStudentReferences.removeFront();
+  }
 
-void tableController::DeleteFaculty() {}
+  // Replace values
+  while (!tempList.isEmpty()) {
+    facultyStudentReferences.insertFront(tempList.peekFront());
+    tempList.removeFront();
+  }
+  */
+}
+
+void tableController::AddNewStudent(StudentRecords newStudent) {
+  //StudentRecordsTree.insert(newStudent);
+}
+
+void tableController::DeleteStudent(int studentID) {
+  StudentRecordsTree.remove(studentID);
+}
+
+void tableController::AddFaculty(FacultyRecords newFaculty) {
+  //FacultyRecordsTree.insert(newFaculty);
+}
+
+void tableController::DeleteFaculty(int facultyID) {
+  FacultyRecordsTree.remove(facultyID);
+}
 
 void tableController::ChangeAdvisor() {}
 
@@ -28,7 +65,8 @@ void tableController::RemoveStudentFromFaculty() {}
 
 void tableController::Rollback() {}
 
-void tableController::ExitMenu() {}
+void tableController::ExitMenu() {
+}
 
 int main() {
   std::cout << "test" << std::endl;
