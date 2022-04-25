@@ -26,8 +26,3 @@ bool StudentRecords::operator==(StudentRecords sr) {
   }
   return false;
 }
-
-int main() {
-  std::cout << "test" << std::endl;
-  return 1;
-}

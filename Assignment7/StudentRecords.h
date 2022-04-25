@@ -1,5 +1,4 @@
 #include <string>
-#include "BST.h"
 
 class StudentRecords {
   private:
