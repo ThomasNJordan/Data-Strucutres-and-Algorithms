@@ -20,23 +20,27 @@ void tableController::printFacultyInfo(int facultyID) {
   FacultyRecordsTree.find(facultyID);
 }
 
-void tableController::printFacultyAdvisees() {
-
+void tableController::printFacultyAdvisees(int studentID) {
+  StudentRecords tempRecord = StudentRecordsTree.find(studentID);
+  int tempFacultyID = tempRecord.getStudentFacultyID();
+  printFacultyInfo(tempFacultyID);
 }
 
-void tableController::printFacultyOfStudent() {
+void tableController::printFacultyOfStudent(int facultyID) {
+  FacultyRecords tempFaculty = FacultyRecordsTree.find(facultyID);
   DLList<int> tempList;
+  DLList<int> FacultyOfStudentList = tempFaculty.getFacultyStudentReferences();
   std::cout << "Advisees of Faculty Member " << facultyID << ": ";
 
-  while (!facultyStudentReferences.isEmpty()) {
-    tempList = facultyStudentReferences.peekFront();
-    std::cout << facultyStudentReferences.peekFront() << " ";
-    facultyStudentReferences.removeFront();
+  while (!FacultyOfStudentList.isEmpty()) {
+    tempList.insertFront(FacultyOfStudentList.peekFront());
+    std::cout << FacultyOfStudentList.peekFront() << " ";
+    FacultyOfStudentList.removeFront();
   }
 
   // Replace values
   while (!tempList.isEmpty()) {
-    facultyStudentReferences.insertFront(tempList.peekFront());
+    FacultyOfStudentList.insertFront(tempList.peekFront());
     tempList.removeFront();
   }
 }
@@ -66,6 +70,8 @@ void tableController::RemoveStudentFromFaculty() {}
 void tableController::Rollback() {}
 
 void tableController::ExitMenu() {
+  //printAllFacultyInfoById();
+  //printAllFacultyInfoById();
 }
 
 int main() {

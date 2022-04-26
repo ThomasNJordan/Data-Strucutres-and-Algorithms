@@ -15,3 +15,24 @@ FacultyRecords::FacultyRecords(int facultyID, std::string facultyName, std::stri
 }
 
 FacultyRecords::~FacultyRecords() {}
+
+// Accesors
+int FacultyRecords::getFacultyID() {
+  return facultyID;
+}
+
+std::string FacultyRecords::getFacultyName() {
+  return facultyName;
+}
+
+std::string FacultyRecords::getFacultyLevel() {
+  return facultyLevel;
+}
+
+std::string FacultyRecords::getFacultyDepartment() {
+  return facultyDepartment;
+}
+
+DLList<int> FacultyRecords::getFacultyStudentReferences() {
+  return facultyStudentReferences;
+}

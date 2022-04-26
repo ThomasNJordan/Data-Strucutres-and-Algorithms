@@ -20,6 +20,28 @@ StudentRecords::StudentRecords(int studentID, std::string studentName, std::stri
 
 StudentRecords::~StudentRecords() {}
 
+// Accessors
+std::string StudentRecords::getStudentName() {
+  return studentName;
+}
+
+std::string StudentRecords::getStudentLevel() {
+  return studentLevel;
+}
+
+std::string StudentRecords::getStudentMajor() {
+  return studentMajor;
+}
+
+double StudentRecords::getStudentGPA() {
+  return studentGPA;
+}
+
+int StudentRecords::getStudentFacultyAdvisorID() {
+  return studentFacultyAdvisorID;
+}
+
+// Method Overloading
 bool StudentRecords::operator==(StudentRecords sr) {
   if (this->studentID == sr.studentID && this->studentName == sr.studentName && this->studentLevel == sr.studentLevel && this->studentMajor == sr.studentMajor && this->studentGPA == sr.studentGPA && this->studentFacultyAdvisorID == sr.studentFacultyAdvisorID) {
     return true;
