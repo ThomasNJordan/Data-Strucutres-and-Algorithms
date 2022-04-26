@@ -21,6 +21,10 @@ StudentRecords::StudentRecords(int studentID, std::string studentName, std::stri
 StudentRecords::~StudentRecords() {}
 
 // Accessors
+int StudentRecords::getStudentID() {
+  return studentID;
+}
+
 std::string StudentRecords::getStudentName() {
   return studentName;
 }

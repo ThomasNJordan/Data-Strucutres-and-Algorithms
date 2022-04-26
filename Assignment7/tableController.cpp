@@ -13,16 +13,40 @@ void tableController::printAllFacultyInfoById(int facultyID) {
 }
 
 void tableController::printStudentInfo(int studentID) {
-  StudentRecordsTree.find(studentID);
+  StudentRecords tempStudent = StudentRecordsTree.find(studentID);
+  std::cout << "Student ID: " << tempStudent.getStudentID() << std::endl;
+  std::cout << "Name: " << tempStudent.getStudentName() << std::endl;
+  std::cout << "Level: " << tempStudent.getStudentLevel() << std::endl;
+  std::cout << "Major: " << tempStudent.getStudentMajor() << std::endl;
+  std::cout << "GPA: " << tempStudent.getStudentGPA() << std::endl;
+  std::cout << "Faculty Advisor ID: " << tempStudent.getStudentFacultyAdvisorID() << std::endl;
 }
 
 void tableController::printFacultyInfo(int facultyID) {
-  FacultyRecordsTree.find(facultyID);
+  FacultyRecords tempFaculty = FacultyRecordsTree.find(facultyID);
+  DLList<int> tempStudentList = tempFaculty.getFacultyStudentReferences();
+  DLList<int> tempList;
+
+  std::cout << "Faculty ID: " << tempFaculty.getFacultyID() << std::endl;
+  std::cout << "Name: " << tempFaculty.getFacultyName() << std::endl;
+  std::cout << "Position: " << tempFaculty.getFacultyLevel() << std::endl;
+  std::cout << "Department: " << tempFaculty.getFacultyDepartment() << std::endl;
+  std::cout << "Advisees IDs: " << std::endl;
+  while (!tempStudentList.isEmpty()) {
+    tempList.insertFront(tempStudentList.peekFront());
+    std::cout << tempStudentList.peekFront() << " ";
+    tempStudentList.removeFront();
+  }
+  // Replace values
+  while (!tempList.isEmpty()) {
+    tempStudentList.insertFront(tempList.peekFront());
+    tempList.removeFront();
+  }
 }
 
 void tableController::printFacultyAdvisees(int studentID) {
   StudentRecords tempRecord = StudentRecordsTree.find(studentID);
-  int tempFacultyID = tempRecord.getStudentFacultyID();
+  int tempFacultyID = tempRecord.getStudentFacultyAdvisorID();
   printFacultyInfo(tempFacultyID);
 }
 
