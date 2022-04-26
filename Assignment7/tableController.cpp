@@ -44,16 +44,17 @@ void tableController::printFacultyOfStudent() {
 }
 
 void tableController::AddNewStudent(int studentID, StudentRecords newStudent) {
-  TreeNode<StudentRecords> node(studentID, newStudent);
-  StudentRecordsTree.insert(node);
+  TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(studentID, newStudent);
+  StudentRecordsTree.insert(myNode);
 }
 
 void tableController::DeleteStudent(int studentID) {
   StudentRecordsTree.remove(studentID);
 }
 
-void tableController::AddFaculty(FacultyRecords newFaculty) {
-  //FacultyRecordsTree.insert(newFaculty);
+void tableController::AddFaculty(int facultyID, FacultyRecords newFaculty) {
+  TreeNode<FacultyRecords>* myNode = new TreeNode<FacultyRecords>(facultyID, newFaculty);
+  FacultyRecordsTree.insert(myNode);
 }
 
 void tableController::DeleteFaculty(int facultyID) {

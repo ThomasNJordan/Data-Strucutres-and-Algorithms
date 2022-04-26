@@ -15,7 +15,7 @@ class tableController : public StudentRecords, FacultyRecords {
     void printFacultyOfStudent();
     void AddNewStudent(int studentID, StudentRecords newStudent);
     void DeleteStudent(int studentID);
-    void AddFaculty(FacultyRecords newFaculty);
+    void AddFaculty(int facultyID, FacultyRecords newFaculty);
     void DeleteFaculty(int facultyID);
     void ChangeAdvisor();
     void RemoveStudentFromFaculty();
