@@ -2,6 +2,7 @@
 #include "BST.h"
 #include "StudentRecords.h"
 #include "FacultyRecords.h"
+#include <algorithm> // std::sort
 
 class tableController : public StudentRecords, FacultyRecords {
   public:

@@ -5,12 +5,51 @@ tableController::tableController() {}
 tableController::~tableController() {}
 
 void tableController::printAllStudentInfoById(int studentID) {
+  int length = UnsortedStudentIDs.length();
+  DLList<int> tempList;
 
-  StudentRecordsTree.printTree();
+  // https://www.geeksforgeeks.org/sort-c-stl/
+  int sortedArray[length];
+  for (int i = 0; i < length; ++i) {
+    sortedArray[i] = UnsortedStudentIDs.peekFront();
+    tempList.insertFront(UnsortedStudentIDs.peekFront());
+    UnsortedStudentIDs.removeFront();
+  }
+  std::sort(sortedArray, sortedArray+length);
+
+  for (int j = 0; j < length; j++) {
+    printStudentInfo(sortedArray[j]);
+  }
+
+  // Replace values
+  while (!tempList.isEmpty()) {
+    UnsortedStudentIDs.insertFront(tempList.peekFront());
+    tempList.removeFront();
+  }
 }
 
 void tableController::printAllFacultyInfoById(int facultyID) {
-  FacultyRecordsTree.printTree();
+  int length = UnsortedFacultyIDs.length();
+  DLList<int> tempList;
+
+  // https://www.geeksforgeeks.org/sort-c-stl/
+  int sortedArray[length];
+  for (int i = 0; i < length; ++i) {
+    sortedArray[i] = UnsortedFacultyIDs.peekFront();
+    tempList.insertFront(UnsortedFacultyIDs.peekFront());
+    UnsortedFacultyIDs.removeFront();
+  }
+  std::sort(sortedArray, sortedArray+length);
+
+  for (int j = 0; j < length; j++) {
+    printStudentInfo(sortedArray[j]);
+  }
+
+  // Replace values
+  while (!tempList.isEmpty()) {
+    UnsortedFacultyIDs.insertFront(tempList.peekFront());
+    tempList.removeFront();
+  }
 }
 
 void tableController::printStudentInfo(int studentID) {
