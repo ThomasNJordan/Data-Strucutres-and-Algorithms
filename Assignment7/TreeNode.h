@@ -14,7 +14,7 @@ public:
     left = nullptr;
     right = nullptr;
   }
-  TreeNode(E k, E v){ // overlaoded constructor
+  TreeNode(int k, E v){ // overlaoded constructor
     key = k;
     value = v;
     left = nullptr;

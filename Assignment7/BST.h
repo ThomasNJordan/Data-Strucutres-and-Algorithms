@@ -39,9 +39,7 @@ BST<E>::BST(){
 Destructor
 */
 template <typename E>
-BST<E>::~BST(){
-
-}
+BST<E>::~BST(){}
 
 /*
 contains
@@ -95,12 +93,13 @@ Inserts node in tree.
 @param node: tree node to insert.
 */
 template <typename E>
-void BST<E>::insert(TreeNode<E>* node){
+void BST<E>::insert(TreeNode<E>* node) {
   if (root == nullptr) {
     root = node;
-  } else {
+  }
+  else {
     TreeNode<E>* curr = root;
-    TreeNode<E>* parent;
+    TreeNode<E>* parent; 
     while (true) {
       parent = curr;  // update parent
       // based on value, update current
@@ -110,12 +109,12 @@ void BST<E>::insert(TreeNode<E>* node){
           parent->left = node;
           break;
         }
-      }
-      else {
-        curr = curr->right;
-        if (curr == nullptr) {
-          parent -> right = node;
-          break;
+        else {
+          curr = curr->right;
+          if (curr == nullptr) {
+            parent -> right = node;
+            break;
+          }
         }
       }
     }

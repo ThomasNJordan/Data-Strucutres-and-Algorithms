@@ -43,8 +43,9 @@ void tableController::printFacultyOfStudent() {
   */
 }
 
-void tableController::AddNewStudent(StudentRecords newStudent) {
-  //StudentRecordsTree.insert(newStudent);
+void tableController::AddNewStudent(int studentID, StudentRecords newStudent) {
+  TreeNode<StudentRecords> node(studentID, newStudent);
+  StudentRecordsTree.insert(node);
 }
 
 void tableController::DeleteStudent(int studentID) {
@@ -69,6 +70,7 @@ void tableController::ExitMenu() {
 }
 
 int main() {
+  tableController tc;
   std::cout << "test" << std::endl;
   return 1;
 }

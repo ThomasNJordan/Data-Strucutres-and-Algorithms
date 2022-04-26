@@ -13,7 +13,7 @@ class tableController : public StudentRecords, FacultyRecords {
     void printFacultyInfo(int facultyID);
     void printFacultyAdvisees();
     void printFacultyOfStudent();
-    void AddNewStudent(StudentRecords newStudent);
+    void AddNewStudent(int studentID, StudentRecords newStudent);
     void DeleteStudent(int studentID);
     void AddFaculty(FacultyRecords newFaculty);
     void DeleteFaculty(int facultyID);
