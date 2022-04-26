@@ -5,6 +5,7 @@ tableController::tableController() {}
 tableController::~tableController() {}
 
 void tableController::printAllStudentInfoById(int studentID) {
+
   StudentRecordsTree.printTree();
 }
 
@@ -69,18 +70,20 @@ void tableController::printFacultyOfStudent(int facultyID) {
   }
 }
 
-void tableController::AddNewStudent(int studentID, StudentRecords newStudent) {
-  TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(studentID, newStudent);
+void tableController::AddNewStudent(StudentRecords newStudent) {
+  TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(newStudent.getStudentID(), newStudent);
   StudentRecordsTree.insert(myNode);
+  UnsortedStudentIDs.insertFront(newStudent.getStudentID());
 }
 
 void tableController::DeleteStudent(int studentID) {
   StudentRecordsTree.remove(studentID);
 }
 
-void tableController::AddFaculty(int facultyID, FacultyRecords newFaculty) {
-  TreeNode<FacultyRecords>* myNode = new TreeNode<FacultyRecords>(facultyID, newFaculty);
+void tableController::AddFaculty(FacultyRecords newFaculty) {
+  TreeNode<FacultyRecords>* myNode = new TreeNode<FacultyRecords>(newFaculty.getFacultyID(), newFaculty);
   FacultyRecordsTree.insert(myNode);
+  UnsortedFacultyIDs.insertFront(newFaculty.getFacultyID());
 }
 
 void tableController::DeleteFaculty(int facultyID) {
@@ -91,7 +94,20 @@ void tableController::ChangeAdvisor() {}
 
 void tableController::RemoveStudentFromFaculty() {}
 
-void tableController::Rollback() {}
+void tableController::Rollback() {
+  int optionChosen = userChoices.peekFront();
+  userChoices.removeFront();
+
+  if (optionChosen == 7 || optionChosen == 8) {
+    // pop Student Table
+  }
+  if (optionChosen == 9 || optionChosen == 10) {
+    // pop Student Table
+  }
+  if (optionChosen == 11 || optionChosen == 12) {
+    // pop both
+  }
+}
 
 void tableController::ExitMenu() {
   //printAllFacultyInfoById();

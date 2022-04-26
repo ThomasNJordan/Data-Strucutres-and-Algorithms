@@ -99,7 +99,7 @@ void BST<E>::insert(TreeNode<E>* node) {
   }
   else {
     TreeNode<E>* curr = root;
-    TreeNode<E>* parent; 
+    TreeNode<E>* parent;
     while (true) {
       parent = curr;  // update parent
       // based on value, update current

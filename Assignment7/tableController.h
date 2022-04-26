@@ -13,9 +13,9 @@ class tableController : public StudentRecords, FacultyRecords {
     void printFacultyInfo(int facultyID);
     void printFacultyAdvisees(int studentID);
     void printFacultyOfStudent(int facultyID);
-    void AddNewStudent(int studentID, StudentRecords newStudent);
+    void AddNewStudent(StudentRecords newStudent);
     void DeleteStudent(int studentID);
-    void AddFaculty(int facultyID, FacultyRecords newFaculty);
+    void AddFaculty(FacultyRecords newFaculty);
     void DeleteFaculty(int facultyID);
     void ChangeAdvisor();
     void RemoveStudentFromFaculty();
@@ -26,4 +26,8 @@ class tableController : public StudentRecords, FacultyRecords {
     BST<FacultyRecords> FacultyRecordsTree;
     AStack<StudentRecords> StudentRecordsTable;
     AStack<FacultyRecords> FacultyRecordsTable;
+    DLList<int> UnsortedStudentIDs;
+    DLList<int> UnsortedFacultyIDs;
+  protected:
+    DLList<int> userChoices;
 };
