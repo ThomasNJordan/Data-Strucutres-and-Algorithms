@@ -25,9 +25,8 @@ void tableController::printFacultyAdvisees() {
 }
 
 void tableController::printFacultyOfStudent() {
-  /*
   DLList<int> tempList;
-  std::cout << "Advisees of Faculty Member " << facultyID << " ";
+  std::cout << "Advisees of Faculty Member " << facultyID << ": ";
 
   while (!facultyStudentReferences.isEmpty()) {
     tempList = facultyStudentReferences.peekFront();
@@ -40,7 +39,6 @@ void tableController::printFacultyOfStudent() {
     facultyStudentReferences.insertFront(tempList.peekFront());
     tempList.removeFront();
   }
-  */
 }
 
 void tableController::AddNewStudent(int studentID, StudentRecords newStudent) {
