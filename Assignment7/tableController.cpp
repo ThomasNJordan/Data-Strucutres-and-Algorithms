@@ -4,7 +4,7 @@ tableController::tableController() {}
 
 tableController::~tableController() {}
 
-void tableController::printAllStudentInfoById(int studentID) {
+void tableController::printAllStudentInfoById() {
   int length = UnsortedStudentIDs.length();
   DLList<int> tempList;
 
@@ -28,7 +28,7 @@ void tableController::printAllStudentInfoById(int studentID) {
   }
 }
 
-void tableController::printAllFacultyInfoById(int facultyID) {
+void tableController::printAllFacultyInfoById() {
   int length = UnsortedFacultyIDs.length();
   DLList<int> tempList;
 
@@ -168,6 +168,7 @@ void tableController::ChangeAdvisor(int studentID, int facultyID) {
 }
 
 void tableController::RemoveStudentFromFaculty(int studentID, int facultyID, int destinationID) {
+  // TODO Add check to make sure at least one other node besides root in in BST (maybe check length?)
   // We delete the student ID from the faculty member.
   FacultyRecords FacultyMember = FacultyRecordsTree.find(facultyID);
   FacultyRecords DestinationMember = FacultyRecordsTree.find(destinationID);
@@ -225,6 +226,16 @@ void tableController::ExitMenu() {
 
 int main() {
   tableController tc;
-  std::cout << "test" << std::endl;
+  /*
+  FacultyRecords newFaculty1(1111, "Erik Linstead", "Associate Dean", "Computer Sceince");
+  tc.AddFaculty(newFaculty1);
+  tc.printAllFacultyInfoById();
+  */
+
+  StudentRecords newStudent1(1234, "Thomas Jordan", "Freshman", "Computer Science", 4.0, 1111);
+  StudentRecords newStudent2(8888, "Jackie Vu", "Freshman", "Data Science", 4.0, 1111);
+  tc.AddNewStudent(newStudent1);
+  tc.AddNewStudent(newStudent2);
+  tc.printAllStudentInfoById();
   return 1;
 }

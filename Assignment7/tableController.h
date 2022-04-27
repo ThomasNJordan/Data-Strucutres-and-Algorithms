@@ -8,8 +8,8 @@ class tableController : public StudentRecords, FacultyRecords {
   public:
     tableController();
     ~tableController();
-    void printAllStudentInfoById(int studentID);
-    void printAllFacultyInfoById(int facultyID);
+    void printAllStudentInfoById();
+    void printAllFacultyInfoById();
     void printStudentInfo(int studentID);
     void printFacultyInfo(int facultyID);
     void printFacultyAdvisees(int studentID);
