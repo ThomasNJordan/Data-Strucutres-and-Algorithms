@@ -19,4 +19,5 @@ class StudentRecords {
     std::string getStudentMajor();
     double getStudentGPA();
     int getStudentFacultyAdvisorID();
+    void setStudentFacultyAdvisorID(int advisorID);
 };

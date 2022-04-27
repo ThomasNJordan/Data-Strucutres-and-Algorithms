@@ -13,7 +13,6 @@ Simulate::~Simulate() {
 Simulate::Menu() {
   int optionChosen;
   Simulate sim;
-  DLList<int> userChoices;
   int userChoicesSize = 0;
 
   while (isMenu) {

@@ -18,15 +18,15 @@ class tableController : public StudentRecords, FacultyRecords {
     void DeleteStudent(int studentID);
     void AddFaculty(FacultyRecords newFaculty);
     void DeleteFaculty(int facultyID);
-    void ChangeAdvisor();
-    void RemoveStudentFromFaculty();
+    void ChangeAdvisor(int studentID, int facultyID);
+    void RemoveStudentFromFaculty(int studentID, int facultyID, int destinationID);
     void Rollback();
     void ExitMenu();
   private:
     BST<StudentRecords> StudentRecordsTree;
     BST<FacultyRecords> FacultyRecordsTree;
-    AStack<StudentRecords> StudentRecordsTable;
-    AStack<FacultyRecords> FacultyRecordsTable;
+    AStack<StudentRecords> tblStudent;
+    AStack<FacultyRecords> tblFaculty;
     DLList<int> UnsortedStudentIDs;
     DLList<int> UnsortedFacultyIDs;
   protected:

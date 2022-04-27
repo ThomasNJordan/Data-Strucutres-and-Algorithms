@@ -129,9 +129,79 @@ void tableController::DeleteFaculty(int facultyID) {
   FacultyRecordsTree.remove(facultyID);
 }
 
-void tableController::ChangeAdvisor() {}
+void tableController::ChangeAdvisor(int studentID, int facultyID) {
+  StudentRecords oldStudent = StudentRecordsTree.find(studentID);
+  FacultyRecords newFaculty = FacultyRecordsTree.find(facultyID);
+  int oldFacultyID = oldStudent.getStudentID();
+  FacultyRecords oldFaculty = FacultyRecordsTree.find(oldFacultyID);
 
-void tableController::RemoveStudentFromFaculty() {}
+  // Add new adviser to student
+  oldStudent.setStudentFacultyAdvisorID(facultyID);
+  // Remove old student from old Faculty
+  DLList<int> oldStudentRefs = oldFaculty.getFacultyStudentReferences();
+  DLList<int> updatedStudentRefs; // Place this in BST object
+  while (!oldStudentRefs.isEmpty()) {
+    if (oldStudentRefs.peekFront() != studentID) {
+      updatedStudentRefs.insertFront(oldStudentRefs.peekFront());
+      oldStudentRefs.removeFront();
+    }
+    else {
+      oldStudentRefs.removeFront();
+    }
+  }
+  // Add student to new faculty member
+  DLList<int> updatedFacultyRefs = newFaculty.getFacultyStudentReferences();
+  updatedFacultyRefs.insertFront(studentID);
+
+  // Update BST
+  TreeNode<FacultyRecords>* newFacultyNode = new TreeNode<FacultyRecords>(facultyID, newFaculty);
+  FacultyRecordsTree.remove(facultyID);
+  FacultyRecordsTree.insert(newFacultyNode);
+
+  TreeNode<FacultyRecords>* oldFacultyNode = new TreeNode<FacultyRecords>(oldFacultyID, oldFaculty);
+  FacultyRecordsTree.remove(oldFacultyID);
+  FacultyRecordsTree.insert(oldFacultyNode);
+
+  TreeNode<StudentRecords>* oldStudentNode = new TreeNode<StudentRecords>(studentID, oldStudent);
+  StudentRecordsTree.remove(studentID);
+  StudentRecordsTree.insert(oldStudentNode);
+}
+
+void tableController::RemoveStudentFromFaculty(int studentID, int facultyID, int destinationID) {
+  // We delete the student ID from the faculty member.
+  FacultyRecords FacultyMember = FacultyRecordsTree.find(facultyID);
+  FacultyRecords DestinationMember = FacultyRecordsTree.find(destinationID);
+
+  // Remove old student from Faculty member
+  DLList<int> oldStudentRefs = FacultyMember.getFacultyStudentReferences();
+  DLList<int> updatedStudentRefs; // Place this in BST object
+  while (!oldStudentRefs.isEmpty()) {
+    if (oldStudentRefs.peekFront() != studentID) {
+      updatedStudentRefs.insertFront(oldStudentRefs.peekFront());
+      oldStudentRefs.removeFront();
+    }
+    else {
+      oldStudentRefs.removeFront();
+    }
+  }
+
+  // Add student to new faculty member
+  DLList<int> updatedFacultyRefs = DestinationMember.getFacultyStudentReferences();
+  updatedFacultyRefs.insertFront(studentID);
+
+  // Update student
+  StudentRecords updatedStudent = StudentRecordsTree.find(studentID);
+  updatedStudent.setStudentFacultyAdvisorID(destinationID);
+
+  // Update BST
+  TreeNode<FacultyRecords>* newFacultyNode = new TreeNode<FacultyRecords>(facultyID, FacultyMember);
+  FacultyRecordsTree.remove(facultyID);
+  FacultyRecordsTree.insert(newFacultyNode);
+
+  TreeNode<StudentRecords>* oldStudentNode = new TreeNode<StudentRecords>(studentID, updatedStudent);
+  StudentRecordsTree.remove(studentID);
+  StudentRecordsTree.insert(oldStudentNode);
+}
 
 void tableController::Rollback() {
   int optionChosen = userChoices.peekFront();

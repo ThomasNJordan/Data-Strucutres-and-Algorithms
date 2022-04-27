@@ -17,4 +17,5 @@ class FacultyRecords {
     std::string getFacultyLevel();
     std::string getFacultyDepartment();
     DLList<int> getFacultyStudentReferences();
+    void setFacultyStudentReferences(DLList<int> inList);
 };

@@ -36,3 +36,13 @@ std::string FacultyRecords::getFacultyDepartment() {
 DLList<int> FacultyRecords::getFacultyStudentReferences() {
   return facultyStudentReferences;
 }
+
+void FacultyRecords::setFacultyStudentReferences(DLList<int> inList) {
+  while (!facultyStudentReferences.isEmpty()) {
+    facultyStudentReferences.removeFront();
+  }
+  while (!inList.isEmpty()) {
+    facultyStudentReferences.insertFront(inList.peekFront());
+    inList.removeFront();
+  }
+}

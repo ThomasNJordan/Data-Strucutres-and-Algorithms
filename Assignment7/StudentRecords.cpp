@@ -45,6 +45,11 @@ int StudentRecords::getStudentFacultyAdvisorID() {
   return studentFacultyAdvisorID;
 }
 
+// Mutator
+void StudentRecords::setStudentFacultyAdvisorID(int advisorID) {
+  studentFacultyAdvisorID = advisorID;
+}
+
 // Method Overloading
 bool StudentRecords::operator==(StudentRecords sr) {
   if (this->studentID == sr.studentID && this->studentName == sr.studentName && this->studentLevel == sr.studentLevel && this->studentMajor == sr.studentMajor && this->studentGPA == sr.studentGPA && this->studentFacultyAdvisorID == sr.studentFacultyAdvisorID) {
