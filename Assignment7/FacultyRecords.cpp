@@ -46,3 +46,7 @@ void FacultyRecords::setFacultyStudentReferences(DLList<int> inList) {
     inList.removeFront();
   }
 }
+
+void FacultyRecords::appendStudentReference(int StudentReferece) {
+  facultyStudentReferences.insertFront(StudentReferece);
+}

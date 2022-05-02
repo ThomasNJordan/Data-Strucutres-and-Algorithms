@@ -7,7 +7,6 @@ class FacultyRecords {
     std::string facultyName;
     std::string facultyLevel;
     std::string facultyDepartment;
-    DLList<int> facultyStudentReferences;
   public:
     FacultyRecords();
     FacultyRecords(int facultyID, std::string facultyName, std::string facultyLevel, std::string facultyDepartment);
@@ -18,4 +17,6 @@ class FacultyRecords {
     std::string getFacultyDepartment();
     DLList<int> getFacultyStudentReferences();
     void setFacultyStudentReferences(DLList<int> inList);
+    void appendStudentReference(int StudentReferece);
+    DLList<int> facultyStudentReferences; // this is dumb
 };

@@ -71,7 +71,7 @@ void tableController::printFacultyInfo(int facultyID) {
   std::cout << "Name: " << tempFaculty.getFacultyName() << std::endl;
   std::cout << "Position: " << tempFaculty.getFacultyLevel() << std::endl;
   std::cout << "Department: " << tempFaculty.getFacultyDepartment() << std::endl;
-  std::cout << "Advisees IDs: " << std::endl;
+  std::cout << "Advisee IDs: " << std::endl;
   while (!tempStudentList.isEmpty()) {
     tempList.insertFront(tempStudentList.peekFront());
     std::cout << tempStudentList.peekFront() << " ";
@@ -116,13 +116,15 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
     StudentRecordsTree.insert(myNode);
     UnsortedStudentIDs.insertFront(newStudent.getStudentID());
 
+    /*
     FacultyRecords tempFaculty = FacultyRecordsTree.find(newStudent.getStudentFacultyAdvisorID());
-    DLList<int> oldReferences = tempFaculty.getFacultyStudentReferences();
-    oldReferences.insertFront(newStudent.getStudentID());
-    tempFaculty.setFacultyStudentReferences(oldReferences);
-    TreeNode<FacultyRecords>* tempFacultyNode = new TreeNode<FacultyRecords>(tempFaculty.getFacultyID(), tempFaculty);
-    FacultyRecordsTree.remove(tempFaculty.getFacultyID());
-    FacultyRecordsTree.insert(tempFacultyNode);
+    DLList<int> tempRefList = tempFaculty.getFacultyStudentReferences();
+    tempRefList.insertFront(newStudent.getStudentID());
+    tempFaculty.facultyStudentReferences.insertFront(newStudent.getStudentID());
+
+    TreeNode<FacultyRecords>* facultyNode = new TreeNode<FacultyRecords>(tempFaculty.getFacultyID(), tempFaculty);
+    std::cout << tempFaculty.facultyStudentReferences.peekFront() << std::endl;
+    */
   }
   else {
     std::cout << "No such faculty advisor exists." << std::endl;
@@ -131,6 +133,8 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
 
 void tableController::DeleteStudent(int studentID) {
   StudentRecordsTree.remove(studentID);
+
+  // Traverse faculty tree and locate faculty node and delete student reference
 }
 
 void tableController::AddFaculty(FacultyRecords newFaculty) {
@@ -141,6 +145,8 @@ void tableController::AddFaculty(FacultyRecords newFaculty) {
 
 void tableController::DeleteFaculty(int facultyID) {
   FacultyRecordsTree.remove(facultyID);
+
+  // 
 }
 
 void tableController::ChangeAdvisor(int studentID, int facultyID) {
