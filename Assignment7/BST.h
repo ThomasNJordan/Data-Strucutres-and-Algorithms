@@ -93,11 +93,10 @@ Inserts node in tree.
 @param node: tree node to insert.
 */
 template <typename E>
-void BST<E>::insert(TreeNode<E>* node) {
+void BST<E>::insert(TreeNode<E>* node){
   if (root == nullptr) {
     root = node;
-  }
-  else {
+  } else {
     TreeNode<E>* curr = root;
     TreeNode<E>* parent;
     while (true) {
@@ -109,12 +108,12 @@ void BST<E>::insert(TreeNode<E>* node) {
           parent->left = node;
           break;
         }
-        else {
-          curr = curr->right;
-          if (curr == nullptr) {
-            parent -> right = node;
-            break;
-          }
+      }
+      else {
+        curr = curr->right;
+        if (curr == nullptr) {
+          parent -> right = node;
+          break;
         }
       }
     }

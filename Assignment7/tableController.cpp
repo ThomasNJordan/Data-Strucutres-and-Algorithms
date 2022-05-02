@@ -33,16 +33,16 @@ void tableController::printAllFacultyInfoById() {
   DLList<int> tempList;
 
   // https://www.geeksforgeeks.org/sort-c-stl/
-  int sortedArray[length];
+  int FacultysortedArray[length];
   for (int i = 0; i < length; ++i) {
-    sortedArray[i] = UnsortedFacultyIDs.peekFront();
+    FacultysortedArray[i] = UnsortedFacultyIDs.peekFront();
     tempList.insertFront(UnsortedFacultyIDs.peekFront());
     UnsortedFacultyIDs.removeFront();
   }
-  std::sort(sortedArray, sortedArray+length);
+  std::sort(FacultysortedArray, FacultysortedArray+length);
 
   for (int j = 0; j < length; j++) {
-    printStudentInfo(sortedArray[j]);
+    printFacultyInfo(FacultysortedArray[j]);
   }
 
   // Replace values
@@ -110,9 +110,23 @@ void tableController::printFacultyOfStudent(int facultyID) {
 }
 
 void tableController::AddNewStudent(StudentRecords newStudent) {
-  TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(newStudent.getStudentID(), newStudent);
-  StudentRecordsTree.insert(myNode);
-  UnsortedStudentIDs.insertFront(newStudent.getStudentID());
+  // If student's advisor is in tree, update advisor's student list
+  if (FacultyRecordsTree.contains(newStudent.getStudentFacultyAdvisorID())) {
+    TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(newStudent.getStudentID(), newStudent);
+    StudentRecordsTree.insert(myNode);
+    UnsortedStudentIDs.insertFront(newStudent.getStudentID());
+
+    FacultyRecords tempFaculty = FacultyRecordsTree.find(newStudent.getStudentFacultyAdvisorID());
+    DLList<int> oldReferences = tempFaculty.getFacultyStudentReferences();
+    oldReferences.insertFront(newStudent.getStudentID());
+    tempFaculty.setFacultyStudentReferences(oldReferences);
+    TreeNode<FacultyRecords>* tempFacultyNode = new TreeNode<FacultyRecords>(tempFaculty.getFacultyID(), tempFaculty);
+    FacultyRecordsTree.remove(tempFaculty.getFacultyID());
+    FacultyRecordsTree.insert(tempFacultyNode);
+  }
+  else {
+    std::cout << "No such faculty advisor exists." << std::endl;
+  }
 }
 
 void tableController::DeleteStudent(int studentID) {
@@ -226,16 +240,17 @@ void tableController::ExitMenu() {
 
 int main() {
   tableController tc;
-  /*
   FacultyRecords newFaculty1(1111, "Erik Linstead", "Associate Dean", "Computer Sceince");
   tc.AddFaculty(newFaculty1);
-  tc.printAllFacultyInfoById();
-  */
+  //tc.printAllFacultyInfoById();
 
   StudentRecords newStudent1(1234, "Thomas Jordan", "Freshman", "Computer Science", 4.0, 1111);
   StudentRecords newStudent2(8888, "Jackie Vu", "Freshman", "Data Science", 4.0, 1111);
   tc.AddNewStudent(newStudent1);
   tc.AddNewStudent(newStudent2);
-  tc.printAllStudentInfoById();
+  //tc.printAllStudentInfoById();
+
+  tc.printAllFacultyInfoById();
+
   return 1;
 }
