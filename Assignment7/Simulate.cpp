@@ -163,10 +163,3 @@ void Simulate::Menu() {
     optionChosen = -1;
   }
 }
-
-
-int main() {
-  Simulate s;
-  s.Menu();
-  return 1;
-}

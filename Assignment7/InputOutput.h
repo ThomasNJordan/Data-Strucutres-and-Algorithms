@@ -1,8 +1,8 @@
 #include "Simulate.h"
+#include <fstream>
 
 class InputOutput {
-private:
-
 public:
-  
+  void readClassFile();
+  void writeClassFile(std::string pathToFile);
 };
