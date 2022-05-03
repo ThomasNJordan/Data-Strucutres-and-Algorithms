@@ -83,7 +83,6 @@ void InputOutput::writeFacultyTreeToFile(BST<FacultyRecords> m_FacultyRecordsTre
   class_obj.write((char*)&m_FacultyRecordsTree, sizeof(m_FacultyRecordsTree));
 }
 
-
 BST<StudentRecords> InputOutput::readStudentTreeFromFile(std::string pathToFile) {
   ifstream file_obj;
   file_obj.open(pathToFile, ios::in);
@@ -98,12 +97,4 @@ BST<FacultyRecords> InputOutput::readFacultyTreeFromFile(std::string pathToFile)
   BST<FacultyRecords> obj;
   file_obj.read((char*)&obj, sizeof(obj));
   return obj;
-}
-
-int main() {
-  InputOutput i;
-  i.writeClassFile("test.txt");
-  //Simulate s;
-  //s.Menu();
-  return 1;
 }

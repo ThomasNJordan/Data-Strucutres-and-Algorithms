@@ -156,7 +156,7 @@ void Simulate::Menu() {
     else if (optionChosen == 13) {
       sim.Rollback();
     }
-    else { // optionChosen == 14
+    else if (optionChosen == 14) { // optionChosen == 14
       sim.ExitMenu();
       isMenu = true;
     }
