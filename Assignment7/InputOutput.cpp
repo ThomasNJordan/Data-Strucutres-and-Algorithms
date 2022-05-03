@@ -69,16 +69,22 @@ void InputOutput::writeClassFile(std::string pathToFile) {
   }
 }
 
-void InputOutput::writeStudentTreeToFile(BST<StudentRecords> m_StudentRecordsTree) {
+void InputOutput::writeStudentTreeToFile(BST<StudentRecords> m_StudentRecordsTree, std::string pathToFile) {
+  std::ofstream class_obj;
+  class_obj.open(pathToFile, ios::app);
 
+  class_obj.write((char*)&m_StudentRecordsTree, sizeof(m_StudentRecordsTree));
 }
 
-void::InputOutput::writeFacultyTreeToFile(BST<FacultyRecords> m_FacultyRecordsTree) {
+void InputOutput::writeFacultyTreeToFile(BST<FacultyRecords> m_FacultyRecordsTree, std::string pathToFile) {
+  std::ofstream class_obj;
+  class_obj.open(pathToFile, ios::app);
 
+  class_obj.write((char*)&m_FacultyRecordsTree, sizeof(m_FacultyRecordsTree));
 }
 
 
-void InputOutput::readClassFile() {
+void InputOutput::readTreeFromFile() {
 
 }
 
