@@ -7,4 +7,6 @@ public:
   void writeClassFile(std::string pathToFile);
   void writeStudentTreeToFile(BST<StudentRecords> m_StudentRecordsTree, std::string pathToFile);
   void writeFacultyTreeToFile(BST<FacultyRecords> m_FacultyRecordsTree, std::string pathToFile);
+  BST<StudentRecords> readStudentTreeFromFile(std::string pathToFile);
+  BST<FacultyRecords> readFacultyTreeFromFile(std::string pathToFile);
 };

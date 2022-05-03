@@ -84,8 +84,20 @@ void InputOutput::writeFacultyTreeToFile(BST<FacultyRecords> m_FacultyRecordsTre
 }
 
 
-void InputOutput::readTreeFromFile() {
+BST<StudentRecords> InputOutput::readStudentTreeFromFile(std::string pathToFile) {
+  ifstream file_obj;
+  file_obj.open(pathToFile, ios::in);
+  BST<StudentRecords> obj;
+  file_obj.read((char*)&obj, sizeof(obj));
+  return obj;
+}
 
+BST<FacultyRecords> InputOutput::readFacultyTreeFromFile(std::string pathToFile) {
+  ifstream file_obj;
+  file_obj.open(pathToFile, ios::in);
+  BST<FacultyRecords> obj;
+  file_obj.read((char*)&obj, sizeof(obj));
+  return obj;
 }
 
 int main() {
