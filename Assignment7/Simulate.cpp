@@ -46,6 +46,7 @@ void Simulate::Menu() {
     }
     else if (optionChosen == 3) {
       int tempStudentID;
+      std::cout << "Enter Student ID you wish to find: " << std::endl;
       std::cin >> tempStudentID;
       sim.printStudentInfo(tempStudentID);
     }
@@ -72,22 +73,22 @@ void Simulate::Menu() {
       tempStudent.setStudentID(studentID);
 
       std::cout << "Enter Student Name: " << std::endl;
-      std::string studentName;
-      cin >> studentName;
-      tempStudent.setStudentName(studentName);
+      std::string m_studentName;
+      std::cin >> m_studentName;
+      tempStudent.setStudentName(m_studentName);
 
       std::cout << "Enter Student Level: " << std::endl;
       std::string studentLevel;
-      cin >> studentLevel;
+      std::getline(std::cin, studentLevel);
       tempStudent.setStudentLevel(studentLevel);
 
       std::cout << "Enter Student Major: " << std::endl;
       std::string studentMajor;
-      cin >> studentMajor;
+      std::getline(std::cin, studentMajor);
       tempStudent.setStudentMajor(studentMajor);
 
       std::cout << "Enter Student GPA: " << std::endl;
-      int m_GPA;
+      double m_GPA;
       cin >> m_GPA;
       tempStudent.setStudentGPA(m_GPA);
 
@@ -107,23 +108,23 @@ void Simulate::Menu() {
     else if (optionChosen == 9) {
       FacultyRecords tempFaculty;
       std::cout << "Enter Faculty ID: " << std::endl;
-      int studentID;
-      cin >> studentID;
-      tempFaculty.setStudentID(studentID);
+      int facultyID;
+      cin >> facultyID;
+      tempFaculty.setFacultyID(facultyID);
 
       std::cout << "Enter Faculty Name: " << std::endl;
       std::string facultyName;
-      cin >> facultyName;
+      std::cin >> facultyName;
       tempFaculty.setFacultyName(facultyName);
 
       std::cout << "Enter Faculty Level: " << std::endl;
       std::string facultyLevel;
-      cin >> facultyLevel;
+      std::cin >> facultyLevel;
       tempFaculty.setFacultyLevel(facultyLevel);
 
       std::cout << "Enter Faculty Department: " << std::endl;
       std::string facultyDepartment;
-      cin >> facultyDepartment;
+      std::cin >> facultyDepartment;
       tempFaculty.setFacultyDepartment(facultyDepartment);
 
       sim.AddFaculty(tempFaculty);
@@ -147,7 +148,7 @@ void Simulate::Menu() {
       std::cout << "Enter the student ID" << std::endl;
       int studentID;
       cin >> studentID;
-      std::cout << "Enter the faculty ID" << std::endl;
+      std::cout << "Enter the new faculty ID" << std::endl;
       int advisorID;
       cin >> advisorID;
       sim.RemoveStudentFromFaculty(studentID, advisorID);
@@ -159,11 +160,13 @@ void Simulate::Menu() {
       sim.ExitMenu();
       isMenu = true;
     }
+    optionChosen = -1;
   }
 }
 
 
 int main() {
-
+  Simulate s;
+  s.Menu();
   return 1;
 }

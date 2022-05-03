@@ -19,7 +19,7 @@ class tableController : public StudentRecords, FacultyRecords {
     void AddFaculty(FacultyRecords newFaculty);
     void DeleteFaculty(int facultyID);
     void ChangeAdvisor(int studentID, int facultyID);
-    void RemoveStudentFromFaculty(int studentID, int facultyID, int destinationID);
+    void RemoveStudentFromFaculty(int studentID, int destinationID);
     void Rollback();
     void ExitMenu();
   private:

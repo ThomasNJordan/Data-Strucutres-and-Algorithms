@@ -46,6 +46,11 @@ int StudentRecords::getStudentFacultyAdvisorID() {
 }
 
 // Mutator
+
+void StudentRecords::setStudentID(int m_studentID) {
+  studentID = m_studentID;
+}
+
 void StudentRecords::setStudentFacultyAdvisorID(int advisorID) {
   studentFacultyAdvisorID = advisorID;
 }

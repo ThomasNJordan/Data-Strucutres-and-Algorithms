@@ -133,7 +133,6 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
 
 void tableController::DeleteStudent(int studentID) {
   StudentRecordsTree.remove(studentID);
-
   // Traverse faculty tree and locate faculty node and delete student reference
 }
 
@@ -185,10 +184,11 @@ void tableController::ChangeAdvisor(int studentID, int facultyID) {
   StudentRecordsTree.insert(oldStudentNode);
 }
 
-void tableController::RemoveStudentFromFaculty(int studentID, int facultyID, int destinationID) {
+void tableController::RemoveStudentFromFaculty(int studentID, int destinationID) {
   // TODO Add check to make sure at least one other node besides root in in BST (maybe check length?)
   // We delete the student ID from the faculty member.
-  FacultyRecords FacultyMember = FacultyRecordsTree.find(facultyID);
+  StudentRecords StudentNode = StudentRecordsTree.find(studentID);
+  FacultyRecords FacultyMember = FacultyRecordsTree.find(StudentNode.getStudentFacultyAdvisorID());
   FacultyRecords DestinationMember = FacultyRecordsTree.find(destinationID);
 
   // Remove old student from Faculty member
@@ -213,11 +213,11 @@ void tableController::RemoveStudentFromFaculty(int studentID, int facultyID, int
   updatedStudent.setStudentFacultyAdvisorID(destinationID);
 
   // Update BST
-  TreeNode<FacultyRecords>* newFacultyNode = new TreeNode<FacultyRecords>(facultyID, FacultyMember);
-  FacultyRecordsTree.remove(facultyID);
+  TreeNode<FacultyRecords>* newFacultyNode = new TreeNode<FacultyRecords>(StudentNode.getStudentFacultyAdvisorID(), FacultyMember);
+  FacultyRecordsTree.remove(StudentNode.getStudentFacultyAdvisorID());
   FacultyRecordsTree.insert(newFacultyNode);
 
-  TreeNode<StudentRecords>* oldStudentNode = new TreeNode<StudentRecords>(studentID, updatedStudent);
+  TreeNode<StudentRecords>* oldStudentNode = new TreeNode<StudentRecords>(StudentNode.getStudentFacultyAdvisorID(), updatedStudent);
   StudentRecordsTree.remove(studentID);
   StudentRecordsTree.insert(oldStudentNode);
 }

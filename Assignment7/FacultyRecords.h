@@ -17,10 +17,10 @@ class FacultyRecords {
     std::string getFacultyLevel();
     std::string getFacultyDepartment();
     // Mutators
+    void setFacultyID(int m_facultyID);
     void setFacultyName(std::string m_facultyName);
     void setFacultyLevel(std::string m_facultyLevel);
     void setFacultyDepartment(std::string m_facultyDepartment);
-
 
     DLList<int> getFacultyStudentReferences();
     void setFacultyStudentReferences(DLList<int> inList);

@@ -37,6 +37,10 @@ DLList<int> FacultyRecords::getFacultyStudentReferences() {
   return facultyStudentReferences;
 }
 
+void FacultyRecords::setFacultyID(int m_facultyID) {
+  facultyID = m_facultyID;
+}
+
 void FacultyRecords::setFacultyName(std::string m_facultyName) {
   facultyName = m_facultyName;
 }
