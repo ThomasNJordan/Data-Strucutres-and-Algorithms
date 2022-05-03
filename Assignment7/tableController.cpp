@@ -115,7 +115,7 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
     TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(newStudent.getStudentID(), newStudent);
     StudentRecordsTree.insert(myNode);
     UnsortedStudentIDs.insertFront(newStudent.getStudentID());
-    /*
+    /* CODE TO HANDLE STUDENT REFERENCES - BROKE WITHOUT TIME TO FIX
     FacultyRecords tempFaculty = FacultyRecordsTree.find(newStudent.getStudentFacultyAdvisorID());
     DLList<int> tempRefList = tempFaculty.getFacultyStudentReferences();
     tempRefList.insertFront(newStudent.getStudentID());
@@ -125,6 +125,8 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
     FacultyRecordsTree.remove(tempFaculty.getFacultyID());
     FacultyRecordsTree.insert(facultyNode);
     */
+
+    //tblStudent.push(StudentRecordsTree);
   }
   else {
     std::cout << "No such faculty advisor exists." << std::endl;
@@ -133,6 +135,7 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
 
 void tableController::DeleteStudent(int studentID) {
   StudentRecordsTree.remove(studentID);
+  //tblStudent.push(StudentRecordsTree);
   // Traverse faculty tree and locate faculty node and delete student reference
 }
 
@@ -140,10 +143,12 @@ void tableController::AddFaculty(FacultyRecords newFaculty) {
   TreeNode<FacultyRecords>* myNode = new TreeNode<FacultyRecords>(newFaculty.getFacultyID(), newFaculty);
   FacultyRecordsTree.insert(myNode);
   UnsortedFacultyIDs.insertFront(newFaculty.getFacultyID());
+  //tblFaculty.push(FacultyRecordsTree);
 }
 
 void tableController::DeleteFaculty(int facultyID) {
   FacultyRecordsTree.remove(facultyID);
+  //tblFaculty.push(FacultyRecordsTree);
 }
 
 void tableController::ChangeAdvisor(int studentID, int facultyID) {
@@ -182,6 +187,9 @@ void tableController::ChangeAdvisor(int studentID, int facultyID) {
   TreeNode<StudentRecords>* oldStudentNode = new TreeNode<StudentRecords>(studentID, oldStudent);
   StudentRecordsTree.remove(studentID);
   StudentRecordsTree.insert(oldStudentNode);
+
+  //tblStudent.push(StudentRecordsTree);
+  //tblFaculty.push(FacultyRecordsTree);
 }
 
 void tableController::RemoveStudentFromFaculty(int studentID, int destinationID) {
@@ -228,20 +236,20 @@ void tableController::Rollback() {
 
   if (optionChosen == 7 || optionChosen == 8) {
     // pop Student Table
-    tblFaculty.pop();
+    //tblFaculty.pop();
   }
   if (optionChosen == 9 || optionChosen == 10) {
     // pop Student Table
-    tblStudent.pop();
+    //tblStudent.pop();
   }
   if (optionChosen == 11 || optionChosen == 12) {
     // pop both
-    tblFaculty.pop();
-    tblStudent.pop();
+    //tblFaculty.pop();
+    //tblStudent.pop();
   }
 }
 
 void tableController::ExitMenu() {
-  //printAllFacultyInfoById();
-  //printAllFacultyInfoById();
+  printAllFacultyInfoById();
+  printAllFacultyInfoById();
 }

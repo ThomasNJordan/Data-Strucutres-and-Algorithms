@@ -22,11 +22,11 @@ class tableController : public StudentRecords, FacultyRecords {
     void RemoveStudentFromFaculty(int studentID, int destinationID);
     void Rollback();
     void ExitMenu();
+    //AStack<StudentRecordsTree> tblStudent;
+    //AStack<FacultyRecordsTree> tblFaculty;
   private:
     BST<StudentRecords> StudentRecordsTree;
     BST<FacultyRecords> FacultyRecordsTree;
-    AStack<StudentRecords> tblStudent;
-    AStack<FacultyRecords> tblFaculty;
     DLList<int> UnsortedStudentIDs;
     DLList<int> UnsortedFacultyIDs;
   protected:
