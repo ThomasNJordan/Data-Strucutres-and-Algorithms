@@ -1,21 +1,16 @@
-#include <iostream>
-#include "tableController.h"
 #include "Simulate.h"
 
-Simulate::Simulate() {
+Simulate::Simulate() {}
 
-}
+Simulate::~Simulate() {}
 
-Simulate::~Simulate() {
-
-}
-
-Simulate::Menu() {
+void Simulate::Menu() {
   int optionChosen;
-  Simulate sim;
   int userChoicesSize = 0;
+  tableController sim;
+  bool isMenu = false;
 
-  while (isMenu) {
+  while (!isMenu) {
     std::cout << "~Menu~" << std::endl;
     std::cout << "1. Print all students and their information (sorted by ascending id #)." << std::endl;
     std::cout << "2. Print all faculty and their information (sorted by ascending id #)." << std::endl;
@@ -36,12 +31,139 @@ Simulate::Menu() {
 
     if (userChoicesSize != 5) {
       userChoices.insertFront(optionChosen);
-      userChoices++;
+      userChoicesSize++;
     }
     else {
       userChoices.insertFront(optionChosen);
       userChoices.removeBack();
     }
 
+    if (optionChosen == 1) {
+      sim.printAllStudentInfoById();
+    }
+    else if (optionChosen == 2) {
+      sim.printAllFacultyInfoById();
+    }
+    else if (optionChosen == 3) {
+      int tempStudentID;
+      std::cin >> tempStudentID;
+      sim.printStudentInfo(tempStudentID);
+    }
+    else if (optionChosen == 4) {
+      int tempFacultyID;
+      std::cin >> tempFacultyID;
+      sim.printFacultyInfo(tempFacultyID);
+    }
+    else if (optionChosen == 5) {
+      int tempStudentID;
+      std::cin >> tempStudentID;
+      sim.printFacultyOfStudent(tempStudentID);
+    }
+    else if (optionChosen == 6) {
+      int tempFacultyID;
+      std::cin >> tempFacultyID;
+      sim.printFacultyAdvisees(tempFacultyID);
+    }
+    else if (optionChosen == 7) {
+      StudentRecords tempStudent;
+      std::cout << "Enter Student ID: " << std::endl;
+      int studentID;
+      cin >> studentID;
+      tempStudent.setStudentID(studentID);
+
+      std::cout << "Enter Student Name: " << std::endl;
+      std::string studentName;
+      cin >> studentName;
+      tempStudent.setStudentName(studentName);
+
+      std::cout << "Enter Student Level: " << std::endl;
+      std::string studentLevel;
+      cin >> studentLevel;
+      tempStudent.setStudentLevel(studentLevel);
+
+      std::cout << "Enter Student Major: " << std::endl;
+      std::string studentMajor;
+      cin >> studentMajor;
+      tempStudent.setStudentMajor(studentMajor);
+
+      std::cout << "Enter Student GPA: " << std::endl;
+      int m_GPA;
+      cin >> m_GPA;
+      tempStudent.setStudentGPA(m_GPA);
+
+      std::cout << "Enter Student Faculty ID: " << std::endl;
+      int facultyID;
+      cin >> facultyID;
+      tempStudent.setStudentFacultyAdvisorID(facultyID);
+
+      sim.AddNewStudent(tempStudent);
+    }
+    else if (optionChosen == 8) {
+      std::cout << "Enter student ID you wish to delete: " << std::endl;
+      int deleteID;
+      cin >> deleteID;
+      sim.DeleteStudent(deleteID);
+    }
+    else if (optionChosen == 9) {
+      FacultyRecords tempFaculty;
+      std::cout << "Enter Faculty ID: " << std::endl;
+      int studentID;
+      cin >> studentID;
+      tempFaculty.setStudentID(studentID);
+
+      std::cout << "Enter Faculty Name: " << std::endl;
+      std::string facultyName;
+      cin >> facultyName;
+      tempFaculty.setFacultyName(facultyName);
+
+      std::cout << "Enter Faculty Level: " << std::endl;
+      std::string facultyLevel;
+      cin >> facultyLevel;
+      tempFaculty.setFacultyLevel(facultyLevel);
+
+      std::cout << "Enter Faculty Department: " << std::endl;
+      std::string facultyDepartment;
+      cin >> facultyDepartment;
+      tempFaculty.setFacultyDepartment(facultyDepartment);
+
+      sim.AddFaculty(tempFaculty);
+    }
+    else if (optionChosen == 10) {
+      std::cout << "Enter faculty ID you wish to delete: " << std::endl;
+      int deleteID;
+      cin >> deleteID;
+      sim.DeleteFaculty(deleteID);
+    }
+    else if (optionChosen == 11) {
+      std::cout << "Enter the student ID" << std::endl;
+      int studentID;
+      cin >> studentID;
+      std::cout << "Enter the new advisor ID" << std::endl;
+      int advisorID;
+      cin >> advisorID;
+      sim.ChangeAdvisor(studentID, advisorID);
+    }
+    else if (optionChosen == 12) {
+      std::cout << "Enter the student ID" << std::endl;
+      int studentID;
+      cin >> studentID;
+      std::cout << "Enter the faculty ID" << std::endl;
+      int advisorID;
+      cin >> advisorID;
+      sim.RemoveStudentFromFaculty(studentID, advisorID);
+    }
+    else if (optionChosen == 13) {
+      sim.Rollback();
+    }
+    else { // optionChosen == 14
+      sim.ExitMenu();
+      isMenu = true;
+    }
   }
+}
+
+
+int main() {
+
+  return 1;
 }

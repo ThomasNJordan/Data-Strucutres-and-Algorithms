@@ -50,9 +50,46 @@ void StudentRecords::setStudentFacultyAdvisorID(int advisorID) {
   studentFacultyAdvisorID = advisorID;
 }
 
+void StudentRecords::setStudentName(std::string name) {
+  studentName = name;
+}
+
+void StudentRecords::setStudentLevel(std::string studentLevel) {
+  studentLevel = studentLevel;
+}
+
+void StudentRecords::setStudentMajor(std::string studentMajor) {
+  studentMajor = studentMajor;
+}
+
+void StudentRecords::setStudentGPA(int m_GPA) {
+  studentGPA = m_GPA;
+}
+
 // Method Overloading
 bool StudentRecords::operator==(StudentRecords sr) {
   if (this->studentID == sr.studentID && this->studentName == sr.studentName && this->studentLevel == sr.studentLevel && this->studentMajor == sr.studentMajor && this->studentGPA == sr.studentGPA && this->studentFacultyAdvisorID == sr.studentFacultyAdvisorID) {
+    return true;
+  }
+  return false;
+}
+
+bool StudentRecords::operator!=(StudentRecords sr) {
+  if (this->studentID != sr.studentID || this->studentName != sr.studentName || this->studentLevel != sr.studentLevel || this->studentMajor != sr.studentMajor || this->studentGPA != sr.studentGPA || this->studentFacultyAdvisorID != sr.studentFacultyAdvisorID) {
+    return true;
+  }
+  return false;
+}
+
+bool StudentRecords::operator<(StudentRecords sr) {
+  if (this->studentID < sr.studentID) {
+    return true;
+  }
+  return false;
+}
+
+bool StudentRecords::operator>(StudentRecords sr) {
+  if (this->studentID < sr.studentID) {
     return true;
   }
   return false;

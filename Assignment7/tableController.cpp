@@ -115,15 +115,15 @@ void tableController::AddNewStudent(StudentRecords newStudent) {
     TreeNode<StudentRecords>* myNode = new TreeNode<StudentRecords>(newStudent.getStudentID(), newStudent);
     StudentRecordsTree.insert(myNode);
     UnsortedStudentIDs.insertFront(newStudent.getStudentID());
-
     /*
     FacultyRecords tempFaculty = FacultyRecordsTree.find(newStudent.getStudentFacultyAdvisorID());
     DLList<int> tempRefList = tempFaculty.getFacultyStudentReferences();
     tempRefList.insertFront(newStudent.getStudentID());
-    tempFaculty.facultyStudentReferences.insertFront(newStudent.getStudentID());
+    tempFaculty.setFacultyStudentReferences(tempRefList);
 
     TreeNode<FacultyRecords>* facultyNode = new TreeNode<FacultyRecords>(tempFaculty.getFacultyID(), tempFaculty);
-    std::cout << tempFaculty.facultyStudentReferences.peekFront() << std::endl;
+    FacultyRecordsTree.remove(tempFaculty.getFacultyID());
+    FacultyRecordsTree.insert(facultyNode);
     */
   }
   else {
@@ -145,8 +145,6 @@ void tableController::AddFaculty(FacultyRecords newFaculty) {
 
 void tableController::DeleteFaculty(int facultyID) {
   FacultyRecordsTree.remove(facultyID);
-
-  // 
 }
 
 void tableController::ChangeAdvisor(int studentID, int facultyID) {
@@ -230,33 +228,20 @@ void tableController::Rollback() {
 
   if (optionChosen == 7 || optionChosen == 8) {
     // pop Student Table
+    tblFaculty.pop();
   }
   if (optionChosen == 9 || optionChosen == 10) {
     // pop Student Table
+    tblStudent.pop();
   }
   if (optionChosen == 11 || optionChosen == 12) {
     // pop both
+    tblFaculty.pop();
+    tblStudent.pop();
   }
 }
 
 void tableController::ExitMenu() {
   //printAllFacultyInfoById();
   //printAllFacultyInfoById();
-}
-
-int main() {
-  tableController tc;
-  FacultyRecords newFaculty1(1111, "Erik Linstead", "Associate Dean", "Computer Sceince");
-  tc.AddFaculty(newFaculty1);
-  //tc.printAllFacultyInfoById();
-
-  StudentRecords newStudent1(1234, "Thomas Jordan", "Freshman", "Computer Science", 4.0, 1111);
-  StudentRecords newStudent2(8888, "Jackie Vu", "Freshman", "Data Science", 4.0, 1111);
-  tc.AddNewStudent(newStudent1);
-  tc.AddNewStudent(newStudent2);
-  //tc.printAllStudentInfoById();
-
-  tc.printAllFacultyInfoById();
-
-  return 1;
 }

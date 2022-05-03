@@ -37,6 +37,18 @@ DLList<int> FacultyRecords::getFacultyStudentReferences() {
   return facultyStudentReferences;
 }
 
+void FacultyRecords::setFacultyName(std::string m_facultyName) {
+  facultyName = m_facultyName;
+}
+
+void FacultyRecords::setFacultyLevel(std::string m_facultyLevel) {
+  facultyLevel = m_facultyLevel;
+}
+
+void FacultyRecords::setFacultyDepartment(std::string m_facultyDepartment) {
+  facultyDepartment = m_facultyDepartment;
+}
+
 void FacultyRecords::setFacultyStudentReferences(DLList<int> inList) {
   while (!facultyStudentReferences.isEmpty()) {
     facultyStudentReferences.removeFront();

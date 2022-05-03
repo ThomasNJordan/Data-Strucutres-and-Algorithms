@@ -1,9 +1,10 @@
 #include "tableController.h"
 
 class Simulate {
-private:
-public:
-  Simulate();
-  ~Simulate();
-  Menu();
-}
+  private:
+    DLList<int> userChoices;
+  public:
+    Simulate();
+    ~Simulate();
+    void Menu();
+};
