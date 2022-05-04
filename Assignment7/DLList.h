@@ -3,7 +3,7 @@ Thomas Jordan & Jackie Vu
 2400895 & 2345574 (respectively)
 thjordan@chapman.edu & jacvu@chapman.edu
 CPSC 350-02
-Assignment 6: Calculating Metrics on Student Wait Times and Window Idle Times at the Registrar's Office
+Assignment 7: Creating a Simple Database System Using BSTs
 */
 
 /*
@@ -14,7 +14,7 @@ Assignment 6: Calculating Metrics on Student Wait Times and Window Idle Times at
 #include "ListNode.h"
 
 /*
-  This is the header component of the DLList template class that lists out all the private variables and public functions that will be used/included in Queue.h and DLList.h and used/included in Simulation.h, Simulation.cpp, and mainprogram.cpp indirectly.
+  This is the header component of the DLList template class that lists out all the private variables and public functions that will be used/included in FacultyRecords.cpp, tableController.h, tableController.cpp, Simulate.h, Simulate.cpp, InputOutput.h, InputOutput.cpp, and mainprogram.cpp indirectly and in DLList.h and FacultyRecords.h directly.
 */
 
 template <typename E>
@@ -23,7 +23,6 @@ private:
   ListNode<E>* head; // pointer points to the front of the doubly linked list
   ListNode<E>* tail; // pointer points to the back of the doubly linked list
   int size; // tells you the number of elements in the doubly linked list
-
 public:
   DLList(); // default constructor
   ~DLList(); // destructor

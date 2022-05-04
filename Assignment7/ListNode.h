@@ -3,11 +3,16 @@ Thomas Jordan & Jackie Vu
 2400895 & 2345574 (respectively)
 thjordan@chapman.edu & jacvu@chapman.edu
 CPSC 350-02
-Assignment 6: Calculating Metrics on Student Wait Times and Window Idle Times at the Registrar's Office
+Assignment 7: Creating a Simple Database System Using BSTs
 */
 
 /*
-  This is a header file that lists out the public functions that will be used/included in DLList.h and used/included in all other files indirectly.
+  This is the ListNode template class that provides the functionality of a list node.
+  It takes in 1 component for the template: typename E to allow any data type to be applied to the list node.
+*/
+
+/*
+  This is a header file that lists out the public functions that will be used/included in FacultyRecords.h, FacultyRecords.cpp, tableController.h, tableController.cpp, Simulate.h, Simulate.cpp, InputOutput.h, InputOutput.cpp, and mainprogram.cpp indirectly and in ListNode.h and DLList.h directly.
 */
 
 // abstract list node class with 2 pointers (prev and next)

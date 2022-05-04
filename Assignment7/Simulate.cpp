@@ -1,9 +1,22 @@
+/*
+Thomas Jordan & Jackie Vu
+2400895 & 2345574 (respectively)
+thjordan@chapman.edu & jacvu@chapman.edu
+CPSC 350-02
+Assignment 7: Creating a Simple Database System Using BSTs
+*/
+
+/*
+  This is the Simulate class that provides the functionality of putting together the frontend of the menu of the database system.
+*/
+
 #include "Simulate.h"
+#include <iostream>
 
-Simulate::Simulate() {}
-
-Simulate::~Simulate() {}
-
+/*
+  Menu Function
+  The menu function displays the menu to the console, and depending on the option the user chooses, it might ask the user to input certain information before calling out specific functions in tableController.cpp to actually complete the task.
+*/
 void Simulate::Menu() {
   int optionChosen;
   int userChoicesSize = 0;
@@ -69,7 +82,7 @@ void Simulate::Menu() {
       StudentRecords tempStudent;
       std::cout << "Enter Student ID: " << std::endl;
       int studentID;
-      cin >> studentID;
+      std::cin >> studentID;
       tempStudent.setStudentID(studentID);
 
       std::cout << "Enter Student Name: " << std::endl;
@@ -89,12 +102,12 @@ void Simulate::Menu() {
 
       std::cout << "Enter Student GPA: " << std::endl;
       double m_GPA;
-      cin >> m_GPA;
+      std::cin >> m_GPA;
       tempStudent.setStudentGPA(m_GPA);
 
       std::cout << "Enter Student Faculty ID: " << std::endl;
       int facultyID;
-      cin >> facultyID;
+      std::cin >> facultyID;
       tempStudent.setStudentFacultyAdvisorID(facultyID);
 
       sim.AddNewStudent(tempStudent);
@@ -102,14 +115,14 @@ void Simulate::Menu() {
     else if (optionChosen == 8) {
       std::cout << "Enter student ID you wish to delete: " << std::endl;
       int deleteID;
-      cin >> deleteID;
+      std::cin >> deleteID;
       sim.DeleteStudent(deleteID);
     }
     else if (optionChosen == 9) {
       FacultyRecords tempFaculty;
       std::cout << "Enter Faculty ID: " << std::endl;
       int facultyID;
-      cin >> facultyID;
+      std::cin >> facultyID;
       tempFaculty.setFacultyID(facultyID);
 
       std::cout << "Enter Faculty Name: " << std::endl;
@@ -132,25 +145,25 @@ void Simulate::Menu() {
     else if (optionChosen == 10) {
       std::cout << "Enter faculty ID you wish to delete: " << std::endl;
       int deleteID;
-      cin >> deleteID;
+      std::cin >> deleteID;
       sim.DeleteFaculty(deleteID);
     }
     else if (optionChosen == 11) {
       std::cout << "Enter the student ID" << std::endl;
       int studentID;
-      cin >> studentID;
+      std::cin >> studentID;
       std::cout << "Enter the new advisor ID" << std::endl;
       int advisorID;
-      cin >> advisorID;
+      std::cin >> advisorID;
       sim.ChangeAdvisor(studentID, advisorID);
     }
     else if (optionChosen == 12) {
       std::cout << "Enter the student ID" << std::endl;
       int studentID;
-      cin >> studentID;
+      std::cin >> studentID;
       std::cout << "Enter the new faculty ID" << std::endl;
       int advisorID;
-      cin >> advisorID;
+      std::cin >> advisorID;
       sim.RemoveStudentFromFaculty(studentID, advisorID);
     }
     else if (optionChosen == 13) {

@@ -1,4 +1,15 @@
-// template class for BST
+/*
+Thomas Jordan & Jackie Vu
+2400895 & 2345574 (respectively)
+thjordan@chapman.edu & jacvu@chapman.edu
+CPSC 350-02
+Assignment 7: Creating a Simple Database System Using BSTs
+*/
+
+/*
+  This is the BST template class that provides the functionality of the binary search tree.
+  It takes in 1 component for the template: typename E to allow any data type to be applied to the binary search tree.
+*/
 
 #include "TreeNode.h"
 #include <iostream>
@@ -27,7 +38,8 @@ public:
 };
 
 /*
-Constructor, sets root and size values.
+  Default Constructor
+  The default constructor initializes my private variables to nullptr and 0.
 */
 template <typename E>
 BST<E>::BST(){
@@ -36,16 +48,17 @@ BST<E>::BST(){
 }
 
 /*
-Destructor
+  Destructor
+  Called when deleting Binary Search Trees
 */
 template <typename E>
 BST<E>::~BST(){}
 
 /*
-contains
-Checks if tree contains node with key k.
-@param k: key to find.
-@return T/F
+  Contains Function
+  The contains function checks if the binary search tree contains a node with the key k or not.
+  @param int k: key in the binary search tree
+  @return bool false: occurs if root is null or if current value is null, bool true: occurs if the current key value equals to key k
 */
 template <typename E>
 bool BST<E>::contains(int k){
@@ -67,30 +80,36 @@ bool BST<E>::contains(int k){
   return true;
 }
 
+/*
+  Find Function
+  The find function checks if the binary search tree finds a node with the key k or not.
+  @param int k
+  @return E E(): displays empty value if root is null or current value is null, E curr->value: displays the current value if the current key value is equal to key k
+*/
 template <typename E>
 E BST<E>::find(int k){
-  if (root == nullptr) {
-    return E();
+  if (root == nullptr) { // checks to see if the BST exists or not
+    return E(); // returns false case
   }
   TreeNode<E>* curr = root;
-  while (curr->key != k) {
-    if (k < curr->key) {
-      curr = curr->left;
+  while (curr->key != k) { // while current key doesn't point to the value you're looking for
+    if (k < curr->key) { // if value you're looking for is less than current key
+      curr = curr->left; // search the left side of BST
     }
     else {
-      curr = curr->right;
+      curr = curr->right; // search the right side of BST
     }
-    if (curr == nullptr) {
-      return E();
+    if (curr == nullptr) { // if current key points to nothing
+      return E(); // return empty value
     }
   }
-  return curr->value;
+  return curr->value; // return the current value
 }
 
 /*
-insert
-Inserts node in tree.
-@param node: tree node to insert.
+  Insert Function
+  The insert function inserts the node into the binary search tree.
+  @param TreeNode<E>* node: the node to insert into the binary search tree
 */
 template <typename E>
 void BST<E>::insert(TreeNode<E>* node){
@@ -121,12 +140,16 @@ void BST<E>::insert(TreeNode<E>* node){
   size++;
 }
 
-
 /*
-delete
-Delete a node from tree.
-@param k: key to find and delete.
-@return T/F whether delete was successful.
+  Delete Function
+  The delete function removes a node from the binary search tree.
+  There are 4 cases to removing a node from the binary search tree:
+    1. if the node has no children,
+    2. if the node has 1 left child,
+    3. if the node has 1 right child, and
+    4. if the node has 2 children (both left and right).
+  @param int k
+  @return bool false: occurs if current value is null, return true: occurs when removing the node is successful
 */
 template <typename E>
 bool BST<E>::remove(int k){
@@ -211,10 +234,10 @@ bool BST<E>::remove(int k){
 }
 
 /*
-getSuccessor
-Find a node's left most child of its right child
-@param d: Node to find successor for.
-@return successor node.
+  Get Successor Function
+  The get successor function finds a node's leftmost child of its right child.
+  @param TreeNode<E>* d: the node to find the successor for
+  @return TreeNode<E>* successor: the successor node
 */
 template <typename E>
 TreeNode<E>* BST<E>::getSuccessor(TreeNode<E>* d){
@@ -242,9 +265,9 @@ TreeNode<E>* BST<E>::getSuccessor(TreeNode<E>* d){
 }
 
 /*
-getMin
-Find a tree's smallest key node.
-@return smallest key node
+  Get Min Function
+  The get min function finds a binary search tree's smallest key node.
+  @return E TreeNode<E>(): occurs if root equals to null, TreeNode<E>* curr: occurs if current value's left child isn't equal to null (the smallest key node)
 */
 template <typename E>
 TreeNode<E>* BST<E>::getMin(){
@@ -258,11 +281,10 @@ TreeNode<E>* BST<E>::getMin(){
   return curr;
 }
 
-
 /*
-getMax
-Find a tree's largest key node.
-@return largest key node
+  Get Max Function
+  The get max function finds a binary search tree's largest key node.
+  @return E TreeNode<E>(), TreeNode<E>* curr: occurs if current value's right child isn't equal to null (the largest key node)
 */
 template <typename E>
 TreeNode<E>* BST<E>::getMax(){
@@ -277,9 +299,10 @@ TreeNode<E>* BST<E>::getMax(){
 }
 
 /*
-inOrder
-Inorder traversal starting at some node.
-@param node: node to begin traversal
+  In Order Function
+  The in order function traverses by starting at some node and organizes the nodes from least to greatest.
+  @param TreeNode<E>* node: the node to begin the traversal
+  @return occurs if there's no nodes in the binary search tree
 */
 template <typename E>
 void BST<E>::inOrder(TreeNode<E>* node){
@@ -292,8 +315,8 @@ void BST<E>::inOrder(TreeNode<E>* node){
 }
 
 /*
-printTree
-Caller for inOrder.
+  Print Tree Function
+  The print tree function calls for the in order function.
 */
 template <typename E>
 void BST<E>::printTree(){
@@ -302,8 +325,9 @@ void BST<E>::printTree(){
 }
 
 /*
-getRoot
-@return root: root of tree.
+  Get Root Function
+  The get root function returns the root value of the binary search tree.
+  @return TreeNode<E>* root
 */
 template <typename E>
 TreeNode<E>* BST<E>::getRoot(){ // the root is also the mode
@@ -311,8 +335,9 @@ TreeNode<E>* BST<E>::getRoot(){ // the root is also the mode
 }
 
 /*
-length
-@return size: size of tree.
+  Length Function
+  The length function returns the size of the binary search tree.
+  @return int size
 */
 template <typename E>
 int BST<E>::length(){
@@ -320,8 +345,9 @@ int BST<E>::length(){
 }
 
 /*
-isEmpty
-@return T/F: if size is 0 or not.
+  Is Empty Function
+  The is empty function checks to see whether the binary search tree is empty or not.
+  @return bool true: occurs if the size of the binary search tree is 0, bool false: occurs if the size of the binary search tree isn't 0
 */
 template <typename E>
 bool BST<E>::isEmpty(){

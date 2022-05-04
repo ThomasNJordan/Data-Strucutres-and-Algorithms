@@ -1,13 +1,14 @@
 /*
-Thomas Jordan
-2400895
-thjordan@chapman.edu
+Thomas Jordan & Jackie Vu
+2400895 & 2345574 (respectively)
+thjordan@chapman.edu & jacvu@chapman.edu
 CPSC 350-02
-Assignment 5
+Assignment 7: Creating a Simple Database System Using BSTs
 */
 
 /*
-AStack is a implementation of a stack using arrays.
+  This is the AStack template class that provides the functionality of the dynamically allocated stack array.
+  It takes in 1 component for the template: typename E to allow any data type to be applied to the dynamically allocated stack array.
 */
 
 #ifndef ASTACK_H
@@ -17,26 +18,29 @@ AStack is a implementation of a stack using arrays.
 #include <exception>
 #include <iostream>
 
-using namespace std;
+/*
+  This is the header component of the AStack template class that lists out all the private variables and public functions that will be used/included in tableController.cpp, Simulate.h, Simulate.cpp, InputOutput.h, InputOutput.cpp, and mainprogram.cpp indirectly and in AStack.h and tableController.h directly.
+*/
 
 template <typename E>
 class AStack : public Stack<E> {
 private:
-  int stackSize;
-  int top;
-  E *ArrayStack;
+  E *ArrayStack; // array holding stack elements
+  int top; // placement of top element
+  int stackSize; // current size of stack array
 public:
-  AStack();
-  ~AStack();
-  void clear();
-  void push(const E& item);
-  E pop();
-  E topValue();
-  int length();
+  AStack(); // default constructor
+  ~AStack(); // destructor
+  void clear(); // get rid of all elements in the stack array to make the stack array empty
+  void push(const E& item); // pushing an element to the top of the stack array
+  E pop(); // removing the element that's at the top of the stack array
+  E topValue(); // display the element that's at the top of the stack array
+  int length(); // display how many elements are currently in the stack array
 };
 
 /*
-Default constructor that creates an empty array of size 4.
+  Default Constructor
+  The default constructor initializes my private variables ArrayStack to a size of 4 (in order to create an empty array of size 4), stackSize to 4, and top to 0.
 */
 template <typename E>
 AStack<E>::AStack() {
@@ -46,7 +50,8 @@ AStack<E>::AStack() {
 }
 
 /*
-Destructor that calls the clear() function.
+  Destructor
+  The destructor calls the clear function.
 */
 template <typename E>
 AStack<E>::~AStack() {
@@ -54,7 +59,8 @@ AStack<E>::~AStack() {
 }
 
 /*
-Sets the size counter to 0, then deletes the array
+  Clear Function
+  The clear function gets rid of all the elements in the dynamically allocated stack array and reintitializes it.
 */
 template <typename E>
 void AStack<E>::clear() {
@@ -63,9 +69,10 @@ void AStack<E>::clear() {
 }
 
 /*
-push() pushes an item onto the stack. If the stack is full, it then doubles the
-size of the array.
-@param the generic item being added to the stack
+  Push Function
+  The push function adds an element onto the top of the dynamically allocated stack array.
+  If the dynamically allocated stack array is full, it then doubles the size of the dynamically allocated stack array.
+  @param const E& item: the element being added to the stack
 */
 template <typename E>
 void AStack<E>::push(const E& item) {
@@ -80,39 +87,47 @@ void AStack<E>::push(const E& item) {
       ArrayStack[i] = newStack[i];
     }
   }
-  ArrayStack[top] = item;  // sets a new top to actual top
+  ArrayStack[top] = item; // sets a new top to actual top
   top++;
 }
 
 /*
-pop() removes the top item from the stack
-@return returns the new top value of the stack
+  Pop Function
+  The pop function removes and returns an element from the top of the dynamically allocated stack array most of the time.
+  If the dynamically allocated stack array is empty (top == 0), an runtime error exception is thrown since there aren't any elements to remove.
+  @return E item: the top element of the stack
 */
 template <typename E>
 E AStack<E>::pop() { //
   try {
     if (top == 0) {
-      throw runtime_error("Error: Stack is empty");
+      throw std::runtime_error("Error: Stack is currently empty. There's no elements for you to remove from the stack.");
     }
   }
-  catch (const exception &e) {} // replace with runtime_error
+  catch (const std::runtime_error &e) {}
   stackSize--;
   top--;
   return ArrayStack[top];
 }
 
 /*
-topValue() returns the top value
-@return the top value of the stack
+  Top Value Function
+  The top value function returns a copy of the value of the top element of the dynamically allocated stack array.
+  @return E value: the value of top element of the dynamically allocated stack array if the size of the stack is 0, E stackArray[top - 1]: the value of top element of the dynamically allocated stack array if the size of the stack is greater than 0
 */
 template <typename E>
 E AStack<E>::topValue() {
-  return ArrayStack[top-1];
+  if (stackSize == 0) {
+    E value = E();
+    return value;
+  }
+  return ArrayStack[top - 1];
 }
 
 /*
-length() returns the size of the stack
-@return the size of the stack
+  Length Function
+  The length function returns the number of elements that are currently in the dynamically allocated stack array.
+  @return int stackSize
 */
 template <typename E>
 int AStack<E>::length() {
