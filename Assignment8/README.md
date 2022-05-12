@@ -27,6 +27,6 @@ Assignment 8: Implementing Three Sorting Algorithms
    https://www.programiz.com/dsa/selection-sort to implement the selection sorting algorithm   
 
 
-4. I clarified how to implement the implementation of my timing function with Dr. Ali   
+4. I clarified how to implement the timing function with Dr. Ali   
 
 5. g++ -std=c++11 -o sort CocktailShaker.cpp Merge.cpp SelectionSort.cpp Driver.cpp setup.cpp mainprogram.cpp && ./sort 100k.txt
