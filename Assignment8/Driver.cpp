@@ -1,7 +1,25 @@
+/*
+Thomas Jordan
+2400895
+thjordan@chapman.edu
+CPSC 350-02
+Assignment 8: Sorting algorithms
+*/
+
+/*
+  Driver.cpp is the implementation of the Driver class. This class is
+  responsible for managing all the sorting algorithms, the timings, and the
+  output.
+*/
+
 #include "Driver.h"
 
-// https://stackoverflow.com/questions/22387586/measuring-execution-time-of-a-function-in-c
-
+/*
+  Drive() is the driver function. It starts each sorting algorithm and times
+  how long they take to exewcute. It also is responsible for outputting the
+  results of the timer.
+  @param a string of the filepath of the input file
+*/
 void Driver::Drive(std::string inFile) {
   setup s;
   s.readFromeFile(inFile);
