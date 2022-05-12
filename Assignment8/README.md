@@ -1,10 +1,10 @@
 Assignment 8: Implementing Three Sorting Algorithms
 
-1. Thomas Jordan
-   2400895
-   thjordan@chapman.edu
-   CPSC 350-02
-   Assignment 8: Sorting Algorithms
+1. Thomas Jordan   
+   2400895   
+   thjordan@chapman.edu   
+   CPSC 350-02    
+   Assignment 8: Sorting Algorithms    
 
 2. CocktailShaker.cpp    
    CocktailShaker.h    
