@@ -20,7 +20,7 @@ Assignment 8: Implementing Three Sorting Algorithms
 
 3. https://en.wikipedia.org/wiki/Cocktail_shaker_sort to create a Cocktail
    Shaker sorting algorithm.   
-   https://stackoverflow.com/questions/22387586/measuring-execution-time-of-a-function-in-c to record how long the differnt algorithms ran
+   https://stackoverflow.com/questions/22387586/measuring-execution-time-of-a-function-in-c to record how long the differnt algorithms ran    
    https://en.wikipedia.org/wiki/Merge_sort to implement the merge sort algorithm   
    https://www.programiz.com/dsa/merge-sort to cross-reference the wikipedia article on merge sorting   
    https://www.geeksforgeeks.org/merge-sort/ to suppliment the merge sort article from programiz   
